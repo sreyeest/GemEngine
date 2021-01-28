@@ -1,6 +1,28 @@
 {
-	"Actor": { },
-	"Item": { },
-	"Weapon": { },
-	"Armor": { },
+	"Actor": {},
+	"Item": { 
+		"types": [ 
+			"weapon", 
+			"armor" 
+		],
+		"templates": {
+			"itemDescription": {
+				"description": "",
+				"effect": "",
+				"bonus": "1d4"
+			}
+		}, 
+		"weapon": { 
+			"templates": [
+				"itemDescription"
+			],
+			"reach": 0,
+			"damage": 1
+		},
+		"armor":{ 
+			"templates": [
+				"itemDescription"
+			]
+		}
+	}
 }
