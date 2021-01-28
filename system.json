@@ -16,4 +16,7 @@
 	"gridUnits": "ft",
     "primaryTokenAttribute": "health",
     "secondaryTokenAttribute": "fatigue",
+	"url": "https://github.com/sreyeest/GemEngine",
+    "manifest": "https://raw.githubusercontent.com/sreyeest/GemEngine/master/system.json",
+    "download": "https://github.com/sreyeest/GemEngine/archive/master.zip"
 }
