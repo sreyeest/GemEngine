@@ -1,5 +1,5 @@
 {
-	"name": "gem-engine",
+	"name": "gemEngine",
 	"title": "Gem Engine",
 	"description": "A system for playing generic rpg games.",
 	"author": "Zamumillo",
@@ -8,7 +8,7 @@
 	"compatibleCoreVersion": "0.7.9",
 	"templateVersion": 1,
 	"esmodules": [ "gemEngine.js" ],
-    "styles": [ "gemEngine.css" ],
+    "styles": [ ],
 	"packs": [ ],
 	"socket":true,
 	"languages": [ ],

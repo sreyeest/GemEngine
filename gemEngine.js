@@ -4,5 +4,5 @@ Hooks.once("init", function() {
     console.log("gemEngine | Initialising Gem Engine System");
 
     Items.unregisterSheet("core", ItemsSheet);
-    Items.registerSheet("gem-engine", GemItemSheet, { makeDefault: true });
+    Items.registerSheet("gemEngine", GemItemSheet, { makeDefault: true });
 });
