@@ -1,9 +1,8 @@
-import GemItemSheet from "./module/sheets/GemItemSheet.js";
+import { GemItemSheet } from "./module/sheets/GemItemSheet.js";
 
-Hooks.once("init", function()
-{
+Hooks.once("init", function() {
     console.log("gemEngine | Initialising Gem Engine System");
 
     Items.unregisterSheet("core", ItemsSheet);
-    Items.registerSheet("gemEngine", GemItemSheet, { makeDefault: true });
+    Items.registerSheet("gem-engine", GemItemSheet, { makeDefault: true });
 });

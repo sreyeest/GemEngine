@@ -1,5 +1,6 @@
 export default class GemItemSheet extends ItemSheet {
 	get template() {
-		return `systems/gem-engine/templates/sheets/${this.item.data.type}-sheet.html`;
+		const path = "systems/gem-engine/templates/sheets";
+		return `${path}/${this.item.data.type}-sheet.html`;
 	}
 }
