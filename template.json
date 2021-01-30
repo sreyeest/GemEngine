@@ -16,6 +16,7 @@
 			"templates": [
 				"itemDescription"
 			],
+			"attackType": "Melee",
 			"reach": 0,
 			"damage": 1
 		},

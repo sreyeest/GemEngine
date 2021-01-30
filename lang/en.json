@@ -1,0 +1,18 @@
+{
+    "gemengine": {
+        "item": {
+            "description": "Description",
+            "effect": "Effect",
+            "bonus": "Bonus"
+        },
+        "weapon": {
+            "attackType": "Type",
+            "reach": "Reach",
+            "damage": "Damage"
+        },
+        "attackTypes": {
+            "melee": "Melee",
+            "ranged": "Ranged"
+        }        
+    }
+}

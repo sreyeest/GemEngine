@@ -3,5 +3,45 @@
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
-    <p>PUTO!</p>
+    <div>
+        <table>
+            <tr>
+                <th>{{localize "gemengine.weapon.attackType"}}</th>
+                <th>{{localize "gemengine.item.bonus"}}</th>
+                <th>{{localize "gemengine.item.effect"}}</th>
+                <th>{{localize "gemengine.weapon.reach"}}</th>
+                <th>{{localize "gemengine.weapon.damage"}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="data.attackType">
+                        {{#select data.attackType}}
+                        {{#each config.attackTypes as |name type|}}
+                        <option value="{{type}}">{{localize name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>
+                    <select name="data.bonus">
+                        {{#select data.bonus}}
+                        {{#each config.diceTypes as |name type|}}
+                        <option value="{{type}}">{{name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>  
+                    <input name="data.effect" type="text" value="{{data.effect}}" data-dtype="Text"/>
+                </td>
+                <td>  
+                    <input name="data.reach" type="text" value="{{data.reach}}" data-dtype="Number"/>
+                </td>
+                <td>  
+                    <input name="data.damage" type="text" value="{{data.damage}}" data-dtype="Number"/>
+                </td>
+            </tr>
+        </table>
+        <textarea name="data.description">{{data.description}}</textarea>
+    </div>
 </form>

@@ -3,4 +3,12 @@ export default class GemItemSheet extends ItemSheet {
 		const path = "systems/gemengine/templates/sheets";
 		return `${path}/${this.item.data.type}-sheet.html`;
 	}
+
+	getData() {
+		const data = super.getData();
+
+		data.config = CONFIG.gemengine;
+
+		return data;
+	}
 }
