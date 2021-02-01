@@ -1,15 +1,50 @@
 {
-	"Actor": {},
+	"Actor": {
+		"types":[
+			"character",
+			"npc"
+		],
+		"templates": {
+			"characterData": {
+				"characterName": "",
+				"concept": "",
+				"nature": "",
+				"motto": ""
+			},
+			"attributes": {
+				"power": "d8",
+				"mind": "d8",
+				"discipline": "d8",
+				"skill": "d8",
+				"aura": "d8",
+				"instinct": "d8"
+			}
+		},
+		"character": {
+			"templates": [
+				"characterData",
+				"attributes"
+			],
+			"talents": [],
+			"weapons": [],
+			"armors": []
+		}
+	},
 	"Item": { 
 		"types": [ 
 			"weapon", 
-			"armor" 
+			"armor",
+			"talent"
 		],
 		"templates": {
 			"itemDescription": {
 				"description": "",
 				"effect": "",
 				"bonus": "1d4"
+			},
+			"talentDescription": {
+				"description": "",
+				"value": "d4"
 			}
 		}, 
 		"weapon": { 
