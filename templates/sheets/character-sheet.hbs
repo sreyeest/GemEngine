@@ -3,17 +3,13 @@
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
         <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
-    <!--<div class="sheet-content">
-        {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
-        {{> "systems/gemengine/templates/partials/equipment-panel.hbs" actor}}
-    </div>-->
-            {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
-    <section class="items">
-        <h3>Owned Items</h3>
-        <ol class="actor-items">
-        {{#each actor.items as |item id|}}
-            {{> "systems/gemengine/templates/partials/equipment-panel.hbs" item}}
-        {{/each}}
-        </ol>
-    </section>
+
+    {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
+    {{> "systems/gemengine/templates/partials/data-panel.hbs"}}
+    {{> "systems/gemengine/templates/partials/talents-panel.hbs"}}
+    {{> "systems/gemengine/templates/partials/aspects-panel.hbs"}}
+    {{> "systems/gemengine/templates/partials/equipment-panel.hbs"}}
+    {{> "systems/gemengine/templates/partials/state-panel.hbs"}}
+    
+    <p> FIN! </p>
 </form>

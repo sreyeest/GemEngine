@@ -3,9 +3,15 @@ import GemItemSheet from "./module/sheets/GemItemSheet.js";
 import GemCharacterSheet from "./module/sheets/GemCharacterSheet.js";
 
 async function preloadHandlebarsTemplates() {
+    const path = "systems/gemengine/templates/partials";
     const templatePaths = [
-        "systems/gemengine/templates/partials/attributes-panel.hbs",
-        "systems/gemengine/templates/partials/equipment-panel.hbs"
+        `${path}/attributes-panel.hbs`,
+        `${path}/data-panel.hbs`,
+        `${path}/equipment-panel.hbs`,
+        `${path}/aspects-panel.hbs`,
+        `${path}/talents-panel.hbs`,
+        `${path}/state-panel.hbs`,
+        `${path}/equipment-element.hbs`,
     ];
 
     return loadTemplates(templatePaths);
