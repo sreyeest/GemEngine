@@ -21,13 +21,13 @@
 			}
 		},
 		"character": {
-			"templates": [
-				"characterData",
-				"attributes"
-			],
-			"talents": [],
+			"templates": ["characterData", "attributes"],
 			"weapons": [],
-			"armors": []
+			"armors": [],
+			"talents": []
+		},
+		"npc": {
+			"templates": ["characterData", "attributes"]
 		}
 	},
 	"Item": { 
@@ -48,17 +48,13 @@
 			}
 		}, 
 		"weapon": { 
-			"templates": [
-				"itemDescription"
-			],
+			"templates": ["itemDescription"],
 			"attackType": "Melee",
 			"reach": 0,
 			"damage": 1
 		},
 		"armor":{ 
-			"templates": [
-				"itemDescription"
-			]
+			"templates": ["itemDescription"]
 		}
 	}
 }
