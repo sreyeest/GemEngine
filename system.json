@@ -8,7 +8,7 @@
 	"compatibleCoreVersion": "0.7.9",
 	"templateVersion": 1,
 	"esmodules": [ "gemengine.js" ],
-    "styles": [ "gemengine.css" ],
+    "styles": ["gemengine.css"],
 	"packs": [ ],
 	"socket":true,
 	"languages": [

@@ -1,9 +1,10 @@
 export default class GemCharacterSheet extends ActorSheet {
 
-    static get defaultOption() {
-        return mergeObject(super.defaultOption, {
-            template: "systems/gemengine/templates/sheets/character-sheet.hbs",
-            classes: ["gemengine", "sheet", "actor", "character"] 
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            width: 632, 
+            height: 756,
+            classes: ["gemengine", "sheet", "actor", "character"]
         });
     }
 

@@ -32,6 +32,7 @@
 	},
 	"Item": { 
 		"types": [ 
+			"artifact",
 			"weapon", 
 			"armor",
 			"talent"
@@ -46,7 +47,10 @@
 				"description": "",
 				"value": "d4"
 			}
-		}, 
+		},
+		"artifact":{ 
+			"templates": ["itemDescription"]
+		},
 		"weapon": { 
 			"templates": ["itemDescription"],
 			"attackType": "Melee",

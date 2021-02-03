@@ -1,15 +1,40 @@
-<form class="actor-sheet {{cssClass}}" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
         <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
+      
+    <section class="sheet-body" id="sheet-body">
+    <div class="tab scrollable mainTab_tab active" id="mainTab_Def" data-group="primary" data-tab="mainTab"
+        style="height: 643px;">
+        <div class="new-column" id="mainTabBody">
+            <div class="new-block" id="mainTabrow0">
+                <div class="col-1-3">
+                    {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
+                </div>
+                <div class="col-2-3">
+                    {{> "systems/gemengine/templates/partials/data-panel.hbs"}}
+                </div>
+            </div>
+            <div class="new-block" id="mainTabrow1">
+                <div class="col-1-3">
+                    {{> "systems/gemengine/templates/partials/talents-panel.hbs"}}
+                </div>
+                <div class="col-2-3">
+                    {{> "systems/gemengine/templates/partials/aspects-panel.hbs"}}
+                </div>
+            </div>
+            <div class="new-block" id="mainTabrow2">
+                <div class="col-1-2">
+                    {{> "systems/gemengine/templates/partials/equipment-panel.hbs"}}
+                </div>
+                <div class="col-1-2">
+                    {{> "systems/gemengine/templates/partials/state-panel.hbs"}}
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
 
-    {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
-    {{> "systems/gemengine/templates/partials/data-panel.hbs"}}
-    {{> "systems/gemengine/templates/partials/talents-panel.hbs"}}
-    {{> "systems/gemengine/templates/partials/aspects-panel.hbs"}}
-    {{> "systems/gemengine/templates/partials/equipment-panel.hbs"}}
-    {{> "systems/gemengine/templates/partials/state-panel.hbs"}}
-    
-    <p> FIN! </p>
+
 </form>
