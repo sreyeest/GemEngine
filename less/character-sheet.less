@@ -36,6 +36,11 @@
         padding:5px 5px 5px 10px;
         font-size:13px;
     }
+    .label-chiki {
+        margin: 0px;
+        font-size: 13px;
+        padding: 5px 0px 5px 0px;
+    }
     .input-ahalf {
         padding:0px 5px;
     }
@@ -94,6 +99,19 @@
         text-shadow:1px 1px black;
         border-bottom:1px solid black;
     }
+    .panelheader-atb {
+        background-color:#4e4d49;
+        color:white;
+        margin-right: -10px;
+        padding:3px 5px;
+        font-family:Arial Narrow, sans-serif;
+        font-size:14px;
+        font-weight:bold;
+        text-align:center;
+        text-shadow:1px 1px black;
+        border-bottom:1px solid black;
+        margin-bottom: -5px;
+    }
     .flexblock-center {
         display:flex;
         flex-direction:row;
@@ -113,7 +131,7 @@
     }
     .flexblock-left input {
         font-size:11px;
-        text-align:center;
+        text-align:left;
         border:1px solid #4d2424;
         border-radius:3px;
         background-color:#ebdfc5;
@@ -130,11 +148,13 @@
         width:35px;
         height:26px;
         border-radius:0px 3px 3px 0px;
+        text-align:center;
     }
     .flexblock-left input[type=text].input-ahalf {
         width:35px;
         height:26px;
         border-radius:3px 0px 0px 3px;
+        text-align:center;
     }
     .flexblock-left input.input-disabled {
         background-color:lightgrey;
@@ -156,12 +176,15 @@
     .righttext {
         text-align:right;
     }
+    .lefttext {
+        text-align:left;
+    }
     .radio-input {
         padding:5px 2px;
         vertical-align:middle;
     }
     a.badge-image {
-        background:url('systems/gemengine/styles/img/badge-token.png') no-repeat bottom center;
+        background:url('styles/img/badge-token.png') no-repeat bottom center;
         background-size:36px;
         height:36px;
         width:36px;
@@ -172,7 +195,8 @@
         font-size:30px;
         font-weight:bold;
         text-align:center;
-        margin-left:-3px;
+        margin-left:10px;
+        margin-top:10px;
         vertical-align:middle;
     }
     .badge-container {
@@ -180,5 +204,20 @@
         flex-direction:row;
         justify-content:center;
         width:100%;
+    }
+    table td {
+        white-space: normal;
+        word-wrap: break-word;
+        border: 2px;
+        margin: 2px 0px 2px 0px;
+    }
+    .state {
+        margin: 0px 0px 0px 0px;
+    }
+    .atb {
+        margin: 0px 0px 0px 0px;
+    }
+    .token {
+        padding-top: 2px;
     }
 }

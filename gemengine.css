@@ -47,6 +47,11 @@
   padding: 5px 5px 5px 10px;
   font-size: 13px;
 }
+.gemengine.sheet.actor.character .label-chiki {
+  margin: 0px;
+  font-size: 13px;
+  padding: 5px 0px 5px 0px;
+}
 .gemengine.sheet.actor.character .input-ahalf {
   padding: 0px 5px;
 }
@@ -105,6 +110,19 @@
   text-shadow: 1px 1px black;
   border-bottom: 1px solid black;
 }
+.gemengine.sheet.actor.character .panelheader-atb {
+  background-color: #4e4d49;
+  color: white;
+  margin-right: -10px;
+  padding: 3px 5px;
+  font-family: Arial Narrow, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  border-bottom: 1px solid black;
+  margin-bottom: -5px;
+}
 .gemengine.sheet.actor.character .flexblock-center {
   display: flex;
   flex-direction: row;
@@ -126,7 +144,7 @@
 }
 .gemengine.sheet.actor.character .flexblock-left input {
   font-size: 11px;
-  text-align: center;
+  text-align: left;
   border: 1px solid #4d2424;
   border-radius: 3px;
   background-color: #ebdfc5;
@@ -143,11 +161,13 @@
   width: 35px;
   height: 26px;
   border-radius: 0px 3px 3px 0px;
+  text-align: center;
 }
 .gemengine.sheet.actor.character .flexblock-left input[type=text].input-ahalf {
   width: 35px;
   height: 26px;
   border-radius: 3px 0px 0px 3px;
+  text-align: center;
 }
 .gemengine.sheet.actor.character .flexblock-left input.input-disabled {
   background-color: lightgrey;
@@ -169,12 +189,15 @@
 .gemengine.sheet.actor.character .righttext {
   text-align: right;
 }
+.gemengine.sheet.actor.character .lefttext {
+  text-align: left;
+}
 .gemengine.sheet.actor.character .radio-input {
   padding: 5px 2px;
   vertical-align: middle;
 }
 .gemengine.sheet.actor.character a.badge-image {
-  background: url('systems/gemengine/styles/img/badge-token.png') no-repeat bottom center;
+  background: url('styles/img/badge-token.png') no-repeat bottom center;
   background-size: 36px;
   height: 36px;
   width: 36px;
@@ -185,7 +208,8 @@
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-  margin-left: -3px;
+  margin-left: 10px;
+  margin-top: 10px;
   vertical-align: middle;
 }
 .gemengine.sheet.actor.character .badge-container {
@@ -193,4 +217,19 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+}
+.gemengine.sheet.actor.character table td {
+  white-space: normal;
+  word-wrap: break-word;
+  border: 2px;
+  margin: 2px 0px 2px 0px;
+}
+.gemengine.sheet.actor.character .state {
+  margin: 0px 0px 0px 0px;
+}
+.gemengine.sheet.actor.character .atb {
+  margin: 0px 0px 0px 0px;
+}
+.gemengine.sheet.actor.character .token {
+  padding-top: 2px;
 }

@@ -11,19 +11,32 @@
                 clickvalue="5" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
         </div>
     </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="herido" attid="YEmDGm8U149xKOjh">{{localize "gemengine.health.injured"}} (1-2)</h3><input
-            name="data.injured" value="{{data.injured}}" type="text" class="input-free herido"
-            attid="YEmDGm8U149xKOjh">
-    </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="malherido" attid="Yy6fk0Wc1BA0zN8w">{{localize "gemengine.health.badlyinjured"}} (3-4)</h3>
-        <input name="data.badlyinjured" value="{{data.badlyinjured}}" type="text" class="input-free malherido"
-            attid="Yy6fk0Wc1BA0zN8w">
-    </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="moribundo" attid="JD6qFGAUcyrINH70">{{localize "gemengine.health.dying"}} (5+)</h3><input
-            name="data.dying" value="{{data.dying}}" type="text" class="input-free moribundo"
-            attid="JD6qFGAUcyrINH70">
-    </div>
+    <table class="state">
+        <tbody>
+            <tr>
+                <td>
+                    <h3 class="centertext label-chiki lefttext" id="herido" attid="YEmDGm8U149xKOjh">{{localize "gemengine.health.injured"}} (1-2)</h3>
+                </td>
+                <td>
+                    <input name="data.injured" value="{{data.injured}}" type="text" class="input-free" attid="YEmDGm8U149xKOjh">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="centertext label-chiki lefttext" id="malherido" attid="Yy6fk0Wc1BA0zN8w">{{localize "gemengine.health.badlyinjured"}} (3-4)</h3>
+                </td>
+                <td>
+                    <input name="data.badlyinjured" value="{{data.badlyinjured}}" type="text" class="input-free" attid="Yy6fk0Wc1BA0zN8w">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="centertext label-chiki lefttext" id="moribundo" attid="JD6qFGAUcyrINH70">{{localize "gemengine.health.dying"}} (5+)</h3>
+                </td>
+                <td>
+                    <input name="data.dying" value="{{data.dying}}" type="text" class="input-free" attid="JD6qFGAUcyrINH70">
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

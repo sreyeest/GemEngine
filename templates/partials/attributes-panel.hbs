@@ -1,73 +1,110 @@
-<div class="panelheader">{{localize "gemengine.labels.attributes"}}</div>
-<div class="new-row">
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="aura" attid="Hfefw9wdmutlSN6Z">{{localize "gemengine.att.aura"}}</h3><select
-            class="input-med aura" name="data.aura" attid="Hfefw9wdmutlSN6Z">
-            {{#select data.aura}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-        <h3 class="centertext label-free boldtext" id="instinto" attid="PeemFLe6318G5spI">{{localize "gemengine.att.instinct"}}</h3><select
-            class="input-med instinto" name="data.instinct" attid="PeemFLe6318G5spI">
-            {{#select data.instinct}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-    </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="disciplina" attid="819ZQ80PWmieUgDa">{{localize "gemengine.att.discipline"}}</h3><select
-            class="input-med disciplina" name="data.discipline" attid="819ZQ80PWmieUgDa">
-            {{#select data.discipline}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-        <h3 class="centertext label-free boldtext" id="mania" attid="hXOmunIaTSR5X0W5">{{localize "gemengine.att.skill"}}</h3><select
-            class="input-med mania" name="data.skill" attid="hXOmunIaTSR5X0W5">
-            {{#select data.skill}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-    </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="potencia" attid="tXM2DvzrzhftaCV6">{{localize "gemengine.att.power"}}</h3><select
-            class="input-med potencia" name="data.power" attid="tXM2DvzrzhftaCV6">
-            {{#select data.power}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-        <h3 class="centertext label-free boldtext" id="mente" attid="dTuXr4bKEubMKzA5">{{localize "gemengine.att.mind"}}</h3><select
-            class="input-med mente" name="data.mind" attid="dTuXr4bKEubMKzA5">
-            {{#select data.mind}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-    </div>
-    <div class="flexblock-center">
-        <h3 class="centertext label-free boldtext" id="resistencia" attid="XdlSiFHLOGqWFJ48">{{localize "gemengine.att.resist"}}</h3><select
-            class="input-med resistencia" name="data.resist" attid="XdlSiFHLOGqWFJ48">
-            {{#select data.resist}}
-            {{#each config.diceTypes as |name type|}}
-            <option value="{{type}}">{{localize name}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-        <div class="badge-block centertext token" name="token" attid="WYtGL94pNu9Cmun8"><label
-                class="boldtext">{{localize "gemengine.attributes.star"}}</label>
-            <div class="badge-container"><a class="badge-image"><i class="badge-click" attkey="token"
-                        attid="WYtGL94pNu9Cmun8">3</i></a><a attkey="token" attid="WYtGL94pNu9Cmun8"
-                    class="badge-clickgm"><i class="fas fa-plus-circle"></i></a></div>
-        </div>
-    </div>
+<div class="panelheader-atb">{{localize "gemengine.labels.attributes"}}</div>
+<div class="new-row atb">
+    <table>
+        <tr>
+            <td>
+                <h3 class="centertext label-free boldtext" id="aura" attid="Hfefw9wdmutlSN6Z">{{localize "gemengine.att.aura"}}</h3>
+            </td>
+            <td class="flexblock-left">
+                <select class="input-med aura" name="data.aura" attid="Hfefw9wdmutlSN6Z">
+                    {{#select data.aura}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+            <td>
+                <h3 class="centertext label-free boldtext" id="instinto" attid="PeemFLe6318G5spI">{{localize "gemengine.att.instinct"}}</h3>
+            </td>
+            <td class="flexblock-left">    
+                <select class="input-med instinto" name="data.instinct" attid="PeemFLe6318G5spI">
+                    {{#select data.instinct}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="centertext label-free boldtext" id="disciplina" attid="819ZQ80PWmieUgDa">{{localize "gemengine.att.discipline"}}</h3>
+            </td>
+            <td class="flexblock-left">
+                <select class="input-med disciplina" name="data.discipline" attid="819ZQ80PWmieUgDa">
+                    {{#select data.discipline}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>    
+            </td>
+            <td>
+                <h3 class="centertext label-free boldtext" id="mania" attid="hXOmunIaTSR5X0W5">{{localize "gemengine.att.skill"}}</h3>
+            </td>
+            <td class="flexblock-left">                
+                <select class="input-med mania" name="data.skill" attid="hXOmunIaTSR5X0W5">
+                    {{#select data.skill}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="centertext label-free boldtext" id="potencia" attid="tXM2DvzrzhftaCV6">{{localize "gemengine.att.power"}}</h3>
+            </td>
+            <td class="flexblock-left">                
+                <select class="input-med potencia" name="data.power" attid="tXM2DvzrzhftaCV6">
+                    {{#select data.power}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+            <td>
+                <h3 class="centertext label-free boldtext" id="mente" attid="dTuXr4bKEubMKzA5">{{localize "gemengine.att.mind"}}</h3>
+            </td>
+            <td class="flexblock-left">
+                <select class="input-med mente" name="data.mind" attid="dTuXr4bKEubMKzA5">
+                    {{#select data.mind}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="centertext label-free boldtext" id="resistencia" attid="XdlSiFHLOGqWFJ48">{{localize "gemengine.att.resist"}}</h3>
+            </td>
+            <td class="flexblock-left">
+                <select class="input-med resistencia" name="data.resist" attid="XdlSiFHLOGqWFJ48">
+                    {{#select data.resist}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+            <td >
+                <h3 class="centertext label-free boldtext" id="star" attid="XdlSiFHLOGqWFJ48">{{localize "gemengine.attributes.star"}}</h3>
+            </td>
+            <td class="flexblock-left">
+                <div class="badge-container">
+                    <a class="badge-image token">
+                        <i class="badge-click" attkey="token" attid="WYtGL94pNu9Cmun8">3</i>
+                    </a>
+                    <a attkey="token" attid="WYtGL94pNu9Cmun8" class="badge-clickgm">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
