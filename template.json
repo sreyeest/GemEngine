@@ -9,6 +9,7 @@
 				"characterName": "",
 				"concept": "",
 				"nature": "",
+				"motivation": "",
 				"motto": ""
 			},
 			"attributes": {
@@ -17,17 +18,35 @@
 				"discipline": "d8",
 				"skill": "d8",
 				"aura": "d8",
-				"instinct": "d8"
+				"instinct": "d8",
+				"resist": "d8",
+				"star": 1
+			},
+			"aspects": {
+				"aspect0": "",
+				"aspect1": "",
+				"aspect2": "",
+				"aspect3": "",
+				"aspect4": ""
+			},
+			"equipment": {
+				"weapons": [],
+				"armors": [],
+				"artifacts": [],
+				"talents": []
+			},
+			"health": {
+				"fatigue": 0,
+				"injured": "",
+				"badlyinjured": "",
+				"dying": ""
 			}
 		},
 		"character": {
-			"templates": ["characterData", "attributes"],
-			"weapons": [],
-			"armors": [],
-			"talents": []
+			"templates": ["characterData", "attributes", "aspects", "equipment", "health"]
 		},
 		"npc": {
-			"templates": ["characterData", "attributes"]
+			"templates": ["characterData", "attributes", "aspects", "equipment", "health"]
 		}
 	},
 	"Item": { 

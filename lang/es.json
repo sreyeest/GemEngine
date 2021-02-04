@@ -1,5 +1,44 @@
 {
     "gemengine": {
+        "data": {
+            "name": "Nombre",
+            "concept": "Concepto",
+            "nature": "Naturaleza",
+            "motivation": "Motivación",
+            "motto": "Lema"
+        },
+        "labels": {
+            "attributes": "Atributos",
+            "talents": "Talentos y Rasgos",
+            "aspects": "Aspectos",
+            "equipment": "Equipo",
+            "condition": "Estado"
+        },
+        "att": {
+            "power": "POT",
+            "mind": "MEN",
+            "discipline": "DIS",
+            "skill": "MAÑ",
+            "aura": "AUR",
+            "instinct": "INS",
+            "resist": "RES"
+        },
+        "attributes": {
+            "power": "Potencia",
+            "mind": "Mente",
+            "discipline": "Disciplina",
+            "skill": "Maña",
+            "aura": "Aura",
+            "instinct": "Instinto",
+            "resist": "Resistencia",
+            "star": "Estrella"
+        },
+        "health": {
+            "fatigue": "Fatiga",
+            "injured": "Herido",
+            "badlyinjured": "Malherido",
+            "dying": "Moribundo"
+        },
         "item": {
             "description": "Descripción",
             "effect": "Efecto",
