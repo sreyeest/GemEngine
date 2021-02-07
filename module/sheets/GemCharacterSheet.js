@@ -24,9 +24,10 @@ export default class GemCharacterSheet extends ActorSheet {
     }
 
     activateListeners(html) {
-        console.log("gemengine | activame esta");
         html.find(".item-create").click(this._onItemCreate.bind(this));
-        html.find(".inline-edit").change(this._onTalentEdit.bind(this))
+        html.find(".item-edit").click(this._onItemEdit.bind(this));
+        html.find(".item-delete").click(this._onItemDelete.bind(this));
+        html.find(".inline-edit").change(this._onTalentEdit.bind(this));
         super.activateListeners(html);
     }
 
@@ -34,14 +35,30 @@ export default class GemCharacterSheet extends ActorSheet {
         event.preventDefault();
         let element = event.currentTarget;
 
-        console.log("gemengine | Aqui hemos llegao");
-
         let itemData = {
             name: game.i18n.localize("gemengine.sheet.newItem"),
             type: element.dataset.type
         };
 
         return this.actor.createOwnedItem(itemData);
+    }
+
+    _onItemEdit(event)
+    {
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.itemId;
+        let item = this.actor.getOwnedItem(itemId);
+
+        item.sheet.render(true);
+    }
+
+    _onItemDelete(event)
+    {
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.itemId;
+        return this.actor.deleteOwnedItem(itemId);
     }
 
     _onTalentEdit(event) {

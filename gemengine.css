@@ -48,6 +48,10 @@
   text-align: center;
   vertical-align: middle;
 }
+.gemengine.sheet.item .del-icon {
+  position: absolute;
+  margin-top: 5px;
+}
 .gemengine.sheet.actor.character .editor {
   position: relative;
   max-height: 100%;

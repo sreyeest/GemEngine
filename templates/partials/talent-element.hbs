@@ -1,6 +1,7 @@
     {{#if (eq type "talent")}}
     <div class="flexblock-left item" data-item-id="{{_id}}">
-        <input value="{{name}}" data-field="name" type="text" class="input-large talentName talent-name inline-edit">
+        <a class="item-delete" data-type="talent" style="position:absolute;margin-top:7px;margin-left:-12px;"><i class="fas fa-minus-square"></i></a>
+        <input value="{{name}}" data-field="name" type="text" class="input-large talentName talent-name item-edit" readonly>
         <select data-field="data.bonus" class="input-med talent-bonus inline-edit">
             <option value="d4" {{#if (eq data.bonus "d4")}} selected="" {{/if}} >d4</option>
             <option value="d6" {{#if (eq data.bonus "d6")}} selected="" {{/if}} >d6</option>
@@ -10,5 +11,6 @@
         </select>
         <input type="text" value="{{data.currentPx}}" data-field="data.currentPx" class="input-ahalf talent-currentPx inline-edit" data-dtype="Number">
         <input type="text"  value="{{data.maxPx}}" data-field="data.maxPx" class="input-bhalf input-disabled inputGM talent-maxPx inline-edit" data-dtype="Number">
+        <!--<a class="item-edit" data-type="talent"><i class="fas fa-pen-square"></i></a>-->
     </div>
     {{/if}}
