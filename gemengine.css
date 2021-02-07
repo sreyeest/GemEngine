@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+.gemengine.sheet.item select {
+  width: 100%;
+}
 .gemengine.sheet.item .sheet-content {
   height: 100%;
   display: flex;
@@ -9,6 +12,41 @@
 }
 .gemengine.sheet.item .sheet-content .editor {
   height: 100%;
+}
+.gemengine.sheet.item .input-ahalf {
+  padding: 0px 5px;
+}
+.gemengine.sheet.item .input-bhalf {
+  padding: 0px 5px;
+}
+.gemengine.sheet.item .flexblock-left input[type=text].input-ahalf {
+  width: 45%;
+  height: 26px;
+  border-radius: 3px 0px 0px 3px;
+  text-align: center;
+}
+.gemengine.sheet.item .flexblock-left input[type=text].input-bhalf {
+  width: 45%;
+  height: 26px;
+  border-radius: 0px 3px 3px 0px;
+  text-align: center;
+}
+.gemengine.sheet.item .flexblock-left input.input-disabled {
+  background-color: lightgrey;
+}
+.gemengine.sheet.item .flexblock-left input[type=text].input-free {
+  width: 100%;
+  height: 26px;
+}
+.gemengine.sheet.item .flexblock-center input[type=text].input-free {
+  width: 100%;
+  height: 26px;
+}
+.gemengine.sheet.item .px {
+  width: 20%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 .gemengine.sheet.actor.character .editor {
   position: relative;
@@ -123,6 +161,17 @@
   border-bottom: 1px solid black;
   margin-bottom: -5px;
 }
+.gemengine.sheet.actor.character .panelheader-talents {
+  background-color: #4e4d49;
+  color: white;
+  padding: 3px 5px;
+  font-family: Arial Narrow, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  border-bottom: 1px solid black;
+}
 .gemengine.sheet.actor.character .flexblock-center {
   display: flex;
   flex-direction: row;
@@ -232,4 +281,10 @@
 }
 .gemengine.sheet.actor.character .token {
   padding-top: 2px;
+}
+.gemengine.sheet.actor.character .fa-plus-square {
+  margin-left: 30px;
+}
+.gemengine.sheet.actor.character .create-item {
+  color: white;
 }

@@ -4,6 +4,31 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
     <div class="sheet-content">
-        <p> TALENTO! </p>
+        <table>
+            <tr>
+                <th>{{localize "gemengine.talent.talent"}}</th>
+                <th class="px">{{localize "gemengine.talent.level"}}</th>
+                <th class="px">{{localize "gemengine.talent.px"}}</th>
+            </tr> 
+        <tr>
+            <td>
+                <input name="item.name" type="text" value="{{item.name}}" readonly/>
+            </td>
+            <td class="px">
+                <select name="data.bonus">
+                    {{#select data.bonus}}
+                    {{#each config.diceTypes as |name type|}}
+                    <option value="{{type}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </td>
+            <td class="flexblock-left px">
+                <input name="data.currentPx" type="text" value="{{data.currentPx}}" class="input-ahalf talentPx" data-dtype="Number">
+                <input name="data.maxPx" type="text" value="{{data.maxPx}}" class="input-bhalf input-disabled inputGM talentPx.max" data-dtype="Number">
+            </td>
+        </tr>
+        </table>
+        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
     </div>
 </form>

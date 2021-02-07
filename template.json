@@ -64,7 +64,7 @@
 			},
 			"talentDescription": {
 				"description": "",
-				"value": "d4"
+				"bonus": "d4"
 			}
 		},
 		"artifact":{ 
@@ -78,6 +78,11 @@
 		},
 		"armor":{ 
 			"templates": ["itemDescription"]
+		},
+		"talent":{
+			"templates": ["talentDescription"],
+			"currentPx": 0,
+			"maxPx": 5
 		}
 	}
 }

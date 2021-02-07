@@ -52,6 +52,14 @@
         "attackTypes": {
             "melee": "Melee",
             "ranged": "Ranged"
+        },
+        "talent": {
+            "talent": "Talent",
+            "level": "Level",
+            "px": "Experience"
+        },
+        "sheet": {
+            "newItem": "New item"
         }        
     }
 }

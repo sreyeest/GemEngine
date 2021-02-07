@@ -15,10 +15,31 @@ export default class GemCharacterSheet extends ActorSheet {
     
     getData() {
         const data = super.getData();
-        data.config = CONFIG.gemengine;
         data.weapons = data.items.filter(function (item) { return item.type == "weapon" });
         data.armors = data.items.filter(function (item) { return item.type == "armor" });
         data.talents = data.items.filter(function (item) { return item.type == "talent" });
+        data.config = CONFIG.gemengine;
         return data;
+    }
+
+    activateListeners(html) {
+        console.log("gemengine | activame esta");
+        html.find(".item-create").click(this._onItemCreate.bind(this));
+
+        super.activateListeners(html);
+    }
+
+    _onItemCreate(event) {
+        event.preventDefault();
+        let element = event.currentTarget;
+
+        console.log("gemengine | Aqui hemos llegao");
+
+        let itemData = {
+            name: game.i18n.localize("gemengine.sheet.newItem"),
+            type: element.dataset.type
+        };
+
+        return this.actor.createOwnedItem(itemData);
     }
 }

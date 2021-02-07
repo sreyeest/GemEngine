@@ -12,6 +12,7 @@ async function preloadHandlebarsTemplates() {
         `${path}/talents-panel.hbs`,
         `${path}/state-panel.hbs`,
         `${path}/equipment-element.hbs`,
+        `${path}/talent-element.hbs`,
     ];
 
     return loadTemplates(templatePaths);

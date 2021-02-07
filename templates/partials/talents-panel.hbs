@@ -1,16 +1,21 @@
-<div class="panelheader">{{localize "gemengine.labels.talents"}}</div>
+<!--<div class="panelheader-talents">{{localize "gemengine.labels.talents"}} 
+    <a class="item-create" data-type="weapon"><i class="fas fa-plus-square"></i></a>
+</div>
 <div class="new-row">
-    <div class="flexblock-left"><input name="data.attributes.talentName.value" value="void" type="text"
-            class="input-large talentName" attid="QYym3pDbFi6FvMLE"><select class="input-med talentValue"
-            name="data.attributes.talentValue.value" attid="tQt0PAQQdTapqex0">
+
+    <div class="flexblock-left">
+        <input name="data.attributes.talentName.value" value="void" type="text" class="input-large talentName" attid="QYym3pDbFi6FvMLE">
+        <select class="input-med talentValue" name="data.attributes.talentValue.value" attid="tQt0PAQQdTapqex0">
             <option value="d4" selected="">d4</option>
             <option value="d6">d6</option>
             <option value="d8">d8</option>
             <option value="d10">d10</option>
             <option value="d12">d12</option>
-        </select><input name="data.attributes.talentPx.value" value="0" type="text" class="input-ahalf  talentPx"
-            attid="H9jPysNYqxjUlAf1"><input type="text" class="input-bhalf input-disabled inputGM talentPx.max"
-            name="data.attributes.talentPx.max" value="5"></div>
+        </select>
+        <input name="data.attributes.talentPx.value" value="0" type="text" class="input-ahalf  talentPx" attid="H9jPysNYqxjUlAf1">
+        <input type="text" class="input-bhalf input-disabled inputGM talentPx.max" name="data.attributes.talentPx.max" value="5">
+    </div>
+
     <div class="flexblock-left"><input name="data.attributes.talentName.value" value="void" type="text"
             class="input-large talentName" attid="9UoELF2ITMzmUo1k"><select class="input-med talentValue"
             name="data.attributes.talentValue.value" attid="DoYOruslalXeXCFy">
@@ -55,4 +60,13 @@
         </select><input name="data.attributes.talentPx.value" value="0" type="text" class="input-ahalf  talentPx"
             attid="ZYVv9g9xAyGqcllQ"><input type="text" class="input-bhalf input-disabled inputGM talentPx.max"
             name="data.attributes.talentPx.max" value="5"></div>
+</div> -->
+
+<div class="panelheader-talents">{{localize "gemengine.labels.talents"}} 
+    <!--<a class="item-create" data-type="weapon"><i class="fas fa-plus-square"></i></a>-->
+</div>
+<div class="new-row">
+    {{#each actor.items as |item id|}}
+        {{> "systems/gemengine/templates/partials/talent-element.hbs" item}}
+    {{/each}}
 </div>
