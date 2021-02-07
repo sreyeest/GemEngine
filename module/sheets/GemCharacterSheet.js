@@ -15,17 +15,18 @@ export default class GemCharacterSheet extends ActorSheet {
     
     getData() {
         const data = super.getData();
+        data.config = CONFIG.gemengine;
+        data.artifacts = data.items.filter(function (item) { return item.type == "artifact" });
         data.weapons = data.items.filter(function (item) { return item.type == "weapon" });
         data.armors = data.items.filter(function (item) { return item.type == "armor" });
         data.talents = data.items.filter(function (item) { return item.type == "talent" });
-        data.config = CONFIG.gemengine;
         return data;
     }
 
     activateListeners(html) {
         console.log("gemengine | activame esta");
         html.find(".item-create").click(this._onItemCreate.bind(this));
-
+        html.find(".inline-edit").change(this._onTalentEdit.bind(this))
         super.activateListeners(html);
     }
 
@@ -41,5 +42,15 @@ export default class GemCharacterSheet extends ActorSheet {
         };
 
         return this.actor.createOwnedItem(itemData);
+    }
+
+    _onTalentEdit(event) {
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.itemId;
+        let item = this.actor.getOwnedItem(itemId);
+        let field = element.dataset.field;
+
+        return item.update({ [field]: element.value });
     }
 }
