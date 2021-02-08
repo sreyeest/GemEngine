@@ -111,11 +111,23 @@ export default class GemCharacterSheet extends ActorSheet {
 
     _onBadgeClick(event) {
         let count = this.actor.data.data.stars - 1;
+
+        if(count <= 0)
+        {
+            count = 0;
+        }
+
         this.actor.update({ "data.stars": count });
     }
 
     _onBadgeClickPlus(event) {
         let count = this.actor.data.data.stars + 1;
+
+        if(count >= 5)
+        {
+            count = 5;
+        }
+
         this.actor.update({ "data.stars": count });
     }
 }

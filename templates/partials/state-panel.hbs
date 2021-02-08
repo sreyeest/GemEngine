@@ -3,12 +3,12 @@
     <div class="flexblock-center">
         <h3 class="centertext label-free boldtext" id="fatiga">{{localize "gemengine.health.fatigue"}}</h3>
         <div class="radio-input fatigue-icons" name="fatiga">
-                <a clickvalue="0" class="fatigue-icon0 radio-element" style="font-size: 14px;"><i class="far fa-times-circle"></i></a>
-                <a clickvalue="1" class="fatigue-icon1 radio-element {{#ifGreater data.fatigue 0}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="2" class="fatigue-icon2 radio-element {{#ifGreater data.fatigue 1}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="3" class="fatigue-icon3 radio-element {{#ifGreater data.fatigue 2}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="4" class="fatigue-icon4 radio-element {{#ifGreater data.fatigue 3}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="5" class="fatigue-icon5 radio-element {{#ifGreater data.fatigue 4}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+                <a clickvalue="0" class="fatigue-icon0 radio-element" style="font-size: 14px;"><i class="fas fa-times-circle"></i></a>
+                <a clickvalue="1" class="fatigue-icon1 radio-element {{#ifLess data.fatigue 1}} crossed {{/ifLess}}" style="font-size: 14px;"><i class="fas fa-arrow-alt-circle-down"></i></a>
+                <a clickvalue="2" class="fatigue-icon2 radio-element {{#ifLess data.fatigue 2}} crossed {{/ifLess}}" style="font-size: 14px;"><i class="fas fa-arrow-alt-circle-down"></i></a>
+                <a clickvalue="3" class="fatigue-icon3 radio-element {{#ifLess data.fatigue 3}} crossed {{/ifLess}}" style="font-size: 14px;"><i class="fas fa-arrow-alt-circle-down"></i></a>
+                <a clickvalue="4" class="fatigue-icon4 radio-element {{#ifLess data.fatigue 4}} crossed {{/ifLess}}" style="font-size: 14px;"><i class="fas fa-arrow-alt-circle-down"></i></a>
+                <a clickvalue="5" class="fatigue-icon5 radio-element {{#ifLess data.fatigue 5}} crossed {{/ifLess}}" style="font-size: 14px;"><i class="fas fa-arrow-alt-circle-down"></i></a>
         </div>
     </div>
     <table class="state">
