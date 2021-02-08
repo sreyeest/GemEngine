@@ -2,13 +2,13 @@
 <div class="new-row">
     <div class="flexblock-center">
         <h3 class="centertext label-free boldtext" id="fatiga">{{localize "gemengine.health.fatigue"}}</h3>
-        <div class="radio-input fatiga" name="fatiga"><a clickvalue="0"
-                class="radio-element" style="font-size: 14px;"><i class="far fa-times-circle"></i></a>
-                <a clickvalue="1" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="2" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="3" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="4" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
-                <a clickvalue="5" class="radio-element" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+        <div class="radio-input fatigue-icons" name="fatiga">
+                <a clickvalue="0" class="fatigue-icon0 radio-element" style="font-size: 14px;"><i class="far fa-times-circle"></i></a>
+                <a clickvalue="1" class="fatigue-icon1 radio-element {{#ifGreater data.fatigue 0}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+                <a clickvalue="2" class="fatigue-icon2 radio-element {{#ifGreater data.fatigue 1}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+                <a clickvalue="3" class="fatigue-icon3 radio-element {{#ifGreater data.fatigue 2}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+                <a clickvalue="4" class="fatigue-icon4 radio-element {{#ifGreater data.fatigue 3}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
+                <a clickvalue="5" class="fatigue-icon5 radio-element {{#ifGreater data.fatigue 4}} crossed {{/ifGreater}}" style="font-size: 14px;"><i class="far fa-circle"></i></a>
         </div>
     </div>
     <table class="state">

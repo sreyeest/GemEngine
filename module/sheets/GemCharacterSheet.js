@@ -28,6 +28,14 @@ export default class GemCharacterSheet extends ActorSheet {
         html.find(".item-edit").click(this._onItemEdit.bind(this));
         html.find(".item-delete").click(this._onItemDelete.bind(this));
         html.find(".inline-edit").change(this._onTalentEdit.bind(this));
+        html.find(".fatigue-icon0").click(this._onFatigueChange0.bind(this));
+        html.find(".fatigue-icon1").click(this._onFatigueChange1.bind(this));
+        html.find(".fatigue-icon2").click(this._onFatigueChange2.bind(this));
+        html.find(".fatigue-icon3").click(this._onFatigueChange3.bind(this));
+        html.find(".fatigue-icon4").click(this._onFatigueChange4.bind(this));
+        html.find(".fatigue-icon5").click(this._onFatigueChange5.bind(this));
+        html.find(".badge-click").click(this._onBadgeClick.bind(this));
+        html.find(".badge-click-plus").click(this._onBadgeClickPlus.bind(this));
         super.activateListeners(html);
     }
 
@@ -69,5 +77,45 @@ export default class GemCharacterSheet extends ActorSheet {
         let field = element.dataset.field;
 
         return item.update({ [field]: element.value });
+    }
+
+    _onFatigueChange0(event) {
+        let count = 0;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onFatigueChange1(event) {
+        let count = 1;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onFatigueChange2(event) {
+        let count = 2;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onFatigueChange3(event) {
+        let count = 3;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onFatigueChange4(event) {
+        let count = 4;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onFatigueChange5(event) {
+        let count = 5;
+        this.actor.update({ "data.fatigue": count });
+    }
+
+    _onBadgeClick(event) {
+        let count = this.actor.data.data.stars - 1;
+        this.actor.update({ "data.stars": count });
+    }
+
+    _onBadgeClickPlus(event) {
+        let count = this.actor.data.data.stars + 1;
+        this.actor.update({ "data.stars": count });
     }
 }
