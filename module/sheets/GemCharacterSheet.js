@@ -1,3 +1,5 @@
+import { prepareRoll } from "../sheets/dialoj.js";
+
 export default class GemCharacterSheet extends ActorSheet {
 
     static get defaultOptions() {
@@ -36,7 +38,38 @@ export default class GemCharacterSheet extends ActorSheet {
         html.find(".fatigue-icon5").click(this._onFatigueChange5.bind(this));
         html.find(".badge-click").click(this._onBadgeClick.bind(this));
         html.find(".badge-click-plus").click(this._onBadgeClickPlus.bind(this));
+
+        if(this.actor.owner) {
+            html.find(".item-roll").click(this._onItemRoll.bind(this));
+        }
+
         super.activateListeners(html);
+    }
+
+    async _onItemRoll(event) {
+        event.preventDefault();
+        await prepareRoll(this.actor);
+    }
+
+    _onItemRollBackup(event) {
+
+        //Ejemplo de tirada
+        let rollString = this.actor.data.data.power + "," + this.actor.data.data.discipline;
+
+        console.log("Roll: Comeme un huevo!" + rollString);
+        
+        let roll = new Roll(rollString, this.actor.data.data);
+        let label = "Tirada de Potensia y disciplina";
+        let rollResult = roll.roll();
+        let goal;
+
+        let messageData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result}},
+            flavor: label,
+        };           
+            
+        rollResult.toMessage(messageData);
     }
 
     _onItemCreate(event) {
