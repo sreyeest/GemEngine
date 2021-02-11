@@ -4,6 +4,29 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
     <div class="sheet-content">
-        <p> ARMADURA! </p>
+        <div class="item-head"><h3>{{localize "gemengine.item.type.armor"}}</h3></div>
+        <table>
+            <tr>
+                <th>{{localize "gemengine.item.bonus"}}</th>
+                <th>{{localize "gemengine.item.effect"}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="data.bonus">
+                        {{#select data.bonus}}
+                        {{#each config.diceTypes as |name type|}}
+                        <option value="{{type}}">{{name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>  
+                    <input name="data.effect" type="text" value="{{data.effect}}" data-dtype="Text"/>
+                    <!--<input name="data.effect" type="checkbox" {{data.checkbox}} />-->
+                </td>
+            </tr>
+        </table>
+        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        <!--<textarea name="data.description">{{data.description}}</textarea>-->
     </div>
 </form>

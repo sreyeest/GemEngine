@@ -14,3 +14,14 @@ gemengine.attackTypes =
     melee: "gemengine.attackTypes.melee",
     ranged: "gemengine.attackTypes.ranged"
 }
+
+gemengine.attributes = {
+    none: "-",
+    power: "gemengine.attributes.power",
+    mind: "gemengine.attributes.mind",
+    discipline: "gemengine.attributes.discipline",
+    skill: "gemengine.attributes.skill",
+    aura: "gemengine.attributes.aura",
+    instinct: "gemengine.attributes.instinct",
+    resist: "gemengine.attributes.resist",
+}

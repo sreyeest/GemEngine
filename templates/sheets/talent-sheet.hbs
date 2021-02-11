@@ -7,12 +7,22 @@
         <table>
             <tr>
                 <th>{{localize "gemengine.talent.talent"}}</th>
+                <th>{{localize "gemengine.talent.baseAtb"}}</th>
                 <th class="px">{{localize "gemengine.talent.level"}}</th>
                 <th class="px">{{localize "gemengine.talent.px"}}</th>
             </tr> 
         <tr>
             <td>
                 <input name="item.name" type="text" value="{{item.name}}" readonly/>
+            </td>
+            <td>
+                <select name="data.baseAttribute">
+                    {{#select data.baseAttribute}}
+                    {{#each config.attributes as |name type|}}
+                    <option value="{{type}}">{{localize name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
             </td>
             <td class="px">
                 <select name="data.bonus">

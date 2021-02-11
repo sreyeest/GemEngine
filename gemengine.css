@@ -48,6 +48,18 @@
   text-align: center;
   vertical-align: middle;
 }
+.gemengine.sheet.item .item-head {
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: double;
+}
+.gemengine.sheet.item .item-head h3 {
+  color: maroon;
+  font-family: Arial Narrow, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px gray;
+}
 .gemengine.sheet.actor.character .editor {
   position: relative;
   max-height: 100%;

@@ -82,7 +82,8 @@
 		"talent":{
 			"templates": ["talentDescription"],
 			"currentPx": 0,
-			"maxPx": 5
+			"maxPx": 5,
+			"baseAttribute": "-"
 		}
 	}
 }

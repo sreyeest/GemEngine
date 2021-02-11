@@ -42,7 +42,12 @@
         "item": {
             "description": "Descripción",
             "effect": "Efecto",
-            "bonus": "Bonus"
+            "bonus": "Bonus",
+            "type": {
+                "weapon": "Arma",
+                "armor": "Armadura",
+                "artifact": "Artefacto"
+            }
         },
         "weapon": {
             "attackType": "Tipo",
@@ -56,7 +61,8 @@
         "talent": {
             "talent": "Talento",
             "level": "Nivel",
-            "px": "Experiencia"
+            "px": "Experiencia",
+            "baseAtb": "Atributo Base"
         },
         "sheet": {
             "newItem": "Nuevo item"
