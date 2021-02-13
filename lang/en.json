@@ -66,6 +66,11 @@
         },
         "sheet": {
             "newItem": "New item"
+        },
+        "roll": {
+            "windowName": "Roll",
+            "roll": "Roll",
+            "cancel": "Cancel"
         }
     }
 }

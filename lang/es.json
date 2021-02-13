@@ -66,6 +66,11 @@
         },
         "sheet": {
             "newItem": "Nuevo item"
+        },
+        "roll": {
+            "windowName": "Tirada",
+            "roll": "Tirar",
+            "cancel": "Cancelar"
         }
     }
 }

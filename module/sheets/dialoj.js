@@ -7,19 +7,19 @@ export async function prepareRoll(actor) {
 
     //Ejemplo de dialogo
     let dialog = new Dialog({
-        title: "Roll",
+        title: game.i18n.localize("gemengine.roll.windowName"),
         content: html,
         buttons: {
             roll: {
                 icon: '<i class="fas fa-check"></i>',
-                label: "TIRAR",
+                label: game.i18n.localize("gemengine.roll.roll"),
                 callback: () => {
                     //Ejemplo de tirada
-                    let rollString = actor.data.data.power + "," + actor.data.data.discipline;
-
-                    console.log("Roll: Comeme un huevo!" + rollString);
-                    
+                    //let rollString = actor.data.data.power + "," + actor.data.data.discipline;
+                    let rollString = "";
+                    let dicePool = DicePool.fromExpression("{1d4,1d6,1d8,1d10,1d12}cs>3");
                     let roll = new Roll(rollString, actor.data.data);
+                    roll.terms.push(dicePool);
                     let label = "Tirada de Potensia y disciplina";
                     let rollResult = roll.roll();
                     let goal;
@@ -35,7 +35,7 @@ export async function prepareRoll(actor) {
             },
             cancel: {
                 icon: '<i class="fas fa-times"></i>',
-                label: "CANCELAR",
+                label: game.i18n.localize("gemengine.roll.cancel"),
                 callback: () => {},
             },
         },
