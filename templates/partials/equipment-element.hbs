@@ -10,6 +10,7 @@
             <option value="d10" {{#if (eq data.bonus "d10")}} selected="" {{/if}} >d10</option>
             <option value="d12" {{#if (eq data.bonus "d12")}} selected="" {{/if}} >d12</option>
             </select>
+            <a class="item-roll-equip" data-item-id="{{_id}}" ><i class="fas fa-dice" style="margin:5px 2px;" ></i></a>
         </div>
 {{else if (eq type "armor")}}
         <div class="flexblock-left item" data-item-id="{{_id}}">
@@ -23,6 +24,7 @@
             <option value="d10" {{#if (eq data.bonus "d10")}} selected="" {{/if}} >d10</option>
             <option value="d12" {{#if (eq data.bonus "d12")}} selected="" {{/if}} >d12</option>
             </select>
+            <a class="item-roll-equip" data-item-id="{{_id}}" ><i class="fas fa-dice" style="margin:5px 2px;" ></i></a>
         </div>
 {{else if (eq type "artifact")}}
         <div class="flexblock-left item" data-item-id="{{_id}}">
@@ -36,5 +38,6 @@
             <option value="d10" {{#if (eq data.bonus "d10")}} selected="" {{/if}} >d10</option>
             <option value="d12" {{#if (eq data.bonus "d12")}} selected="" {{/if}} >d12</option>
             </select>
+            <a class="item-roll-equip" data-item-id="{{_id}}" ><i class="fas fa-dice" style="margin:5px 2px;" ></i></a>
         </div>
 {{/if}}

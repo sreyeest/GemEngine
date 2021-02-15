@@ -40,38 +40,37 @@ export default class GemCharacterSheet extends ActorSheet {
         html.find(".badge-click-plus").click(this._onBadgeClickPlus.bind(this));
 
         if(this.actor.owner) {
-            html.find(".item-roll").click(this._onItemRoll.bind(this));
+            html.find(".item-roll-atb").click(this._onItemRollAtb.bind(this));
+            html.find(".item-roll-talent").click(this._onItemRollTalent.bind(this));
+            html.find(".item-roll-equip").click(this._onItemRollEquip.bind(this));
         }
 
         super.activateListeners(html);
     }
 
-    async _onItemRoll(event) {
+    async _onItemRollAtb(event) {
         event.preventDefault();
         const element = event.currentTarget;
         const dataset = element.dataset;
-        await prepareRoll(this.actor, dataset.label);
+        await prepareRoll(this.actor, dataset.label, "-", "-", false, false);
     }
 
-    _onItemRollBackup(event) {
+    async _onItemRollTalent(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+        const itemId = dataset.itemId;
+        let item = this.actor.getOwnedItem(itemId);
+        await prepareRoll(this.actor, item.data.data.baseAttribute, item.id, "-", false, false);
+    }
 
-        //Ejemplo de tirada
-        let rollString = this.actor.data.data.power + "," + this.actor.data.data.discipline;
-
-        console.log("Roll: Comeme un huevo!" + rollString);
-        
-        let roll = new Roll(rollString, this.actor.data.data);
-        let label = "Tirada de Potensia y disciplina";
-        let rollResult = roll.roll();
-        let goal;
-
-        let messageData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result}},
-            flavor: label,
-        };           
-            
-        rollResult.toMessage(messageData);
+    async _onItemRollEquip(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+        const itemId = dataset.itemId;
+        let item = this.actor.getOwnedItem(itemId);
+        await prepareRoll(this.actor, "-", "-", item.id, false, false);
     }
 
     _onItemCreate(event) {

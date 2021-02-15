@@ -54,6 +54,13 @@ Hooks.once("init", function() {
         return options.inverse(this);
     });
     
+    Handlebars.registerHelper('ifEqual', function(v1, v2, options) {
+        if(v1 == v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     Handlebars.registerHelper('isGM', function(options) {
         if(game.user.isGM) {
             return options.fn(this);

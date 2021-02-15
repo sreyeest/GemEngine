@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <td>
-            <select style="width: 100%;">
+            <select id="attribute" style="width: 100%;">
                 {{#select attribute}}
                     <option value="-" {{#if (eq attribute "-")}} selected {{/if}}>-</option>
                     <option value="{{actor.data.data.power}}" {{#if (eq attribute "power")}} selected {{/if}}>{{localize "gemengine.attributes.power"}}</option>
@@ -24,38 +24,48 @@
             </select>
         </td>
         <td>
-            <select style="width: 100%;">
-                {{#select talent}}
-                <option value="-" {{#if (eq talent "-")}} selected {{/if}}>-</option>
+            <select id="talentId" style="width: 100%;">
+                {{#select talentId}}
+                <option value="-" {{#if (eq talentId "-")}} selected {{/if}}>-</option>
                 {{#each actor.items as |item id|}}
                 {{#if (eq item.type "talent")}}
-                <option value="{{id}}" {{#if (eq talent "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                <option value="{{item.data.data.bonus}}" {{#ifEqual ../talentId _id}}selected{{/ifEqual}} data-item-id="{{_id}}">{{item.name}}</option>
                 {{/if}}
                 {{/each}}
                 {{/select}} 
             </select>
         </td>
         <td>
-            <select style="width: 100%;">
+            <select id="equip" style="width: 100%;">
                 {{#select equip}}
                 <option value="-">-</option>
                 {{#each actor.items as |item id|}}
                 {{#if (eq item.type "artifact")}}
-                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                <option value="{{item.data.data.bonus}}" {{#ifEqual ../equip _id}}selected{{/ifEqual}}>{{item.name}}</option>
                 {{else if (eq item.type "weapon")}}
-                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                <option value="{{item.data.data.bonus}}" {{#ifEqual ../equip _id}}selected{{/ifEqual}}>{{item.name}}</option>
                 {{else if (eq item.type "armor")}}
-                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                <option value="{{item.data.data.bonus}}" {{#ifEqual ../equip _id}}selected{{/ifEqual}}>{{item.name}}</option>
                 {{/if}}
                 {{/each}}
                 {{/select}}
             </select>
         </td>
         <td style="text-align: center;">
-            <input type="checkbox" {{#if (eq aspect true)}} checked {{/if}}/>
+            <input id="aspect" value="d6" type="checkbox" {{#if (eq aspect true)}} checked {{/if}}/>
         </td>
         <td style="text-align: center;">
-            <input type="checkbox" {{#if (eq mod true)}} checked {{/if}}/>
+            <select id="mod" style="width: 100%;">
+                {{#select mod}}
+                <option value="-" {{#if (eq mod "-")}} selected {{/if}} >-</option>
+                <option value="d4" {{#if (eq mod "d4")}} selected {{/if}} >d4</option>
+                <option value="d6" {{#if (eq mod "d6")}} selected {{/if}} >d6</option>
+                <option value="d8" {{#if (eq mod "d8")}} selected {{/if}} >d8</option>
+                <option value="d10" {{#if (eq mod "d10")}} selected {{/if}} >d10</option>
+                <option value="d12" {{#if (eq mod "d12")}} selected {{/if}} >d12</option>
+                <option value="d20" {{#if (eq mod "d20")}} selected {{/if}} >d20</option>
+                {{/select}}
+            </select>
         </td>
     </tr>
 </table>
