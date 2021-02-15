@@ -48,7 +48,9 @@ export default class GemCharacterSheet extends ActorSheet {
 
     async _onItemRoll(event) {
         event.preventDefault();
-        await prepareRoll(this.actor);
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+        await prepareRoll(this.actor, dataset.label);
     }
 
     _onItemRollBackup(event) {

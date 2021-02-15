@@ -1,6 +1,64 @@
-<div class="dialog">
-<p>Este es un dialogo</p>
-<p>Msg A: {{msgDataA}}</p>
-<p>Msg B: {{msgDataB}}</p>
+<div class="sheet-content">
+
+<table>
+    <tr>
+        <th>{{localize "gemengine.roll.attribute"}}</th>
+        <th>{{localize "gemengine.roll.talent"}}</th>
+        <th>{{localize "gemengine.roll.item"}}</th>
+        <th>{{localize "gemengine.roll.aspect"}}</th>
+        <th>{{localize "gemengine.roll.mod"}}</th>
+    </tr>
+    <tr>
+        <td>
+            <select style="width: 100%;">
+                {{#select attribute}}
+                    <option value="-" {{#if (eq attribute "-")}} selected {{/if}}>-</option>
+                    <option value="{{actor.data.data.power}}" {{#if (eq attribute "power")}} selected {{/if}}>{{localize "gemengine.attributes.power"}}</option>
+                    <option value="{{actor.data.data.mind}}" {{#if (eq attribute "mind")}} selected {{/if}}>{{localize "gemengine.attributes.mind"}}</option>
+                    <option value="{{actor.data.data.discipline}}" {{#if (eq attribute "discipline")}} selected {{/if}}>{{localize "gemengine.attributes.discipline"}}</option>
+                    <option value="{{actor.data.data.skill}}" {{#if (eq attribute "skill")}} selected {{/if}}>{{localize "gemengine.attributes.skill"}}</option>
+                    <option value="{{actor.data.data.aura}}" {{#if (eq attribute "aura")}} selected {{/if}}>{{localize "gemengine.attributes.aura"}}</option>
+                    <option value="{{actor.data.data.instinct}}" {{#if (eq attribute "instinct")}} selected {{/if}}>{{localize "gemengine.attributes.instinct"}}</option>
+                    <option value="{{actor.data.data.resist}}" {{#if (eq attribute "resist")}} selected {{/if}}>{{localize "gemengine.attributes.resist"}}</option>
+                {{/select}}
+            </select>
+        </td>
+        <td>
+            <select style="width: 100%;">
+                {{#select talent}}
+                <option value="-" {{#if (eq talent "-")}} selected {{/if}}>-</option>
+                {{#each actor.items as |item id|}}
+                {{#if (eq item.type "talent")}}
+                <option value="{{id}}" {{#if (eq talent "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                {{/if}}
+                {{/each}}
+                {{/select}} 
+            </select>
+        </td>
+        <td>
+            <select style="width: 100%;">
+                {{#select equip}}
+                <option value="-">-</option>
+                {{#each actor.items as |item id|}}
+                {{#if (eq item.type "artifact")}}
+                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                {{else if (eq item.type "weapon")}}
+                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                {{else if (eq item.type "armor")}}
+                <option value="{{id}}" {{#if (eq equip "{{id}}")}} selected {{/if}}>{{item.name}}</option>
+                {{/if}}
+                {{/each}}
+                {{/select}}
+            </select>
+        </td>
+        <td style="text-align: center;">
+            <input type="checkbox" {{#if (eq aspect true)}} checked {{/if}}/>
+        </td>
+        <td style="text-align: center;">
+            <input type="checkbox" {{#if (eq mod true)}} checked {{/if}}/>
+        </td>
+    </tr>
+</table>
+
 </div>
 

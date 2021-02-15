@@ -1,8 +1,13 @@
-export async function prepareRoll(actor) {
+import { gemengine } from "../config.js";
+export async function prepareRoll(actor, attribute) {
 
     const html = await renderTemplate('systems/gemengine/templates/chat/dialog.hbs', {
-        "msgDataA": "comeme un huevo",
-        "msgDataB": "pero bien...",
+        "actor": actor,
+        "attribute": attribute,
+        "talent": 4,
+        "equip": 1,
+        "aspect": true,
+        "mod": false,
     });
 
     //Ejemplo de dialogo
@@ -17,7 +22,7 @@ export async function prepareRoll(actor) {
                     //Ejemplo de tirada
                     //let rollString = actor.data.data.power + "," + actor.data.data.discipline;
                     let rollString = "";
-                    let dicePool = DicePool.fromExpression("{1d4,1d6,1d8,1d10,1d12}cs>3");
+                    let dicePool = DicePool.fromExpression("{1d4,1d4,1d6,1d8,1d8,1d8,1d10,1d10}cs>3");
                     let roll = new Roll(rollString, actor.data.data);
                     roll.terms.push(dicePool);
                     let label = "Tirada de Potensia y disciplina";

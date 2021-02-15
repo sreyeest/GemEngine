@@ -70,7 +70,12 @@
         "roll": {
             "windowName": "Tirada",
             "roll": "Tirar",
-            "cancel": "Cancelar"
+            "cancel": "Cancelar",
+            "attribute": "Atributo",
+            "talent": "Talento",
+            "item": "Objeto",
+            "aspect": "Aspecto",
+            "mod": "Mod"
         }
     }
 }

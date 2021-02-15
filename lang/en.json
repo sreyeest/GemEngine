@@ -70,7 +70,12 @@
         "roll": {
             "windowName": "Roll",
             "roll": "Roll",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "attribute": "Attribute",
+            "talent": "Talent",
+            "item": "Item",
+            "aspect": "Aspect",
+            "mod": "Mod"
         }
     }
 }
