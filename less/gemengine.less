@@ -6,34 +6,60 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
-  .card-dialog .radio-card {
-    min-width: 125px;
-    max-width: 125px;
-    flex-basis: auto;
-    flex-grow: 1;
-    text-align: center;
-    margin-bottom: 5px;
-    /* HIDE RADIO */
-    /* IMAGE STYLES */
-    /* CHECKED STYLES */
-  }
-  .card-dialog .radio-card img {
-    height: 100px;
-    display: block;
-    margin: auto;
-  }
-  .card-dialog .radio-card [type=radio] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .card-dialog .radio-card [type=radio] + img {
-    cursor: pointer;
-  }
-  .card-dialog .radio-card [type=radio] + img:hover {
-    box-shadow: 0 0 5px red;
-  }
-  .card-dialog .radio-card [type=radio]:checked + img {
-    box-shadow: 0 0 5px red;
-  }
+.card-dialog .radio-card {
+  min-width: 125px;
+  max-width: 125px;
+  flex-basis: auto;
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 5px;
+  /* HIDE RADIO */
+  /* IMAGE STYLES */
+  /* CHECKED STYLES */
+}
+.card-dialog .radio-card img {
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+.card-dialog .radio-card [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.card-dialog .radio-card [type=radio] + img {
+  cursor: pointer;
+}
+.card-dialog .radio-card [type=radio] + img:hover {
+  box-shadow: 0 0 5px red;
+}
+.card-dialog .radio-card [type=radio]:checked + img {
+  box-shadow: 0 0 5px red;
+}
+
+.dice-roll .dice-result .dice-formula {
+  height: 30px;
+}
+.dice-roll .dice-result .dice-formula .dice {
+  margin: 2px;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;  
+}
+.dice-roll .dice-result .dice-formula .dice label {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.dice-roll .dice-result .dice-formula .dice img {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+.dice-roll .dice-result .dice-formula .modifier {
+  margin: 2px;
+  display: inline-flex;
+}

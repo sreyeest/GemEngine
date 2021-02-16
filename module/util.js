@@ -51,7 +51,7 @@ export class CardSetup {
 }
 
 export async function formatRoll(chatMessage, html, data) {
-    const colorMessage = chatMessage.getFlag('swade', 'colorMessage');
+    const colorMessage = chatMessage.getFlag('gemengine', 'colorMessage');
     // Little helper function
     let pushDice = (chatData, total, faces, red) => {
         let color = 'black';
@@ -63,7 +63,8 @@ export async function formatRoll(chatMessage, html, data) {
         }
         let img = null;
         if ([4, 6, 8, 10, 12, 20].indexOf(faces) > -1) {
-            img = `../icons/svg/d${faces}-grey.svg`;
+            //img = `../icons/svg/d${faces}-grey.svg`;
+            img = `systems/gemengine/styles/img/d${faces}`;
         }
         chatData.dice.push({
             img: img,
@@ -124,13 +125,13 @@ export async function formatRoll(chatMessage, html, data) {
         }
     }
     // Replace default dice-formula by this custom;
-    let rendered = await renderTemplate('systems/swade/templates/chat/roll-formula.html', chatData);
+    let rendered = await renderTemplate('systems/gemengine/templates/chat/roll-formula.hbs', chatData);
     let formula = html.find('.dice-formula');
     formula.replaceWith(rendered);
 }
 
 export function hideChatActionButtons(message, html, data) {
-    const chatCard = html.find('.swade.chat-card');
+    const chatCard = html.find('.gemengine.chat-card');
     if (chatCard.length > 0) {
         // If the user is the message author or the actor owner, proceed
         let actor = game.actors.get(data.message.speaker.actor);
