@@ -1,2 +1,39 @@
 @import "./item-sheet.less";
 @import "./character-sheet.less";
+
+.card-dialog {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .card-dialog .radio-card {
+    min-width: 125px;
+    max-width: 125px;
+    flex-basis: auto;
+    flex-grow: 1;
+    text-align: center;
+    margin-bottom: 5px;
+    /* HIDE RADIO */
+    /* IMAGE STYLES */
+    /* CHECKED STYLES */
+  }
+  .card-dialog .radio-card img {
+    height: 100px;
+    display: block;
+    margin: auto;
+  }
+  .card-dialog .radio-card [type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .card-dialog .radio-card [type=radio] + img {
+    cursor: pointer;
+  }
+  .card-dialog .radio-card [type=radio] + img:hover {
+    box-shadow: 0 0 5px red;
+  }
+  .card-dialog .radio-card [type=radio]:checked + img {
+    box-shadow: 0 0 5px red;
+  }

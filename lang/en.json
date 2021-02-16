@@ -31,7 +31,9 @@
             "aura": "Aura",
             "instinct": "Instinct",
             "resist": "Resist",
-            "star": "DRA"
+            "star": "DRA",
+            "initiative": "Initiative",
+            "size": "Size"
         },
         "health": {
             "fatigue": "Fatigue",
@@ -76,6 +78,15 @@
             "item": "Item",
             "aspect": "Aspect",
             "mod": "Mod"
+        },
+        "combat": {
+            "noCardsLeft": "There are not enough cards left in the deck!",
+            "initDraw": "draws for Initiative!",
+            "ok": "Ok",
+            "redraw": "Redraw",
+            "pickACard": "Pick a card",
+            "cancel": "Cancel",
+            "oldCard": "Old card"
         }
     }
 }

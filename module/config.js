@@ -25,3 +25,8 @@ gemengine.attributes = {
     instinct: "gemengine.attributes.instinct",
     resist: "gemengine.attributes.resist",
 }
+
+gemengine.init = {
+    defaultCardCompendium: 'gemengine.action-cards',
+    cardTable: 'Action Cards',
+}

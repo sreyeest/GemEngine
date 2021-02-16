@@ -9,7 +9,15 @@
 	"templateVersion": 1,
 	"esmodules": [ "gemengine.js" ],
     "styles": ["gemengine.css"],
-	"packs": [ ],
+	"packs": [ 
+		{
+			"name": "action-cards",
+			"label": "Action Cards",
+			"system": "gemengine",
+			"path": "./packs/action-cards.db",
+			"entity": "JournalEntry"
+		}
+	],
 	"socket":true,
 	"languages": [
 		{

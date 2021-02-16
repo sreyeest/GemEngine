@@ -1,0 +1,18 @@
+<form class="card-dialog">
+  {{#each data.cards as |card|}}
+  <div class="radio-card">
+    <label for="{{card._id}}">
+      <input
+        type="radio"
+        name="card"
+        id="{{card.id}}"
+        data-card-id="{{card.id}}"
+      />
+      <img src="{{card.data.img}}" />
+      {{card.name}} {{#if (eq card._id ../data.oldCard)}}
+      <div><strong>({{localize "gemengine.combat.oldCard"}})</strong></div>
+      {{/if}}
+    </label>
+  </div>
+  {{/each}}
+</form>

@@ -31,7 +31,9 @@
             "aura": "Aura",
             "instinct": "Instinto",
             "resist": "Resistencia",
-            "star": "DRA"
+            "star": "DRA",
+            "initiative": "Iniciativa",
+            "size": "Tamaño"
         },
         "health": {
             "fatigue": "Fatiga",
@@ -76,6 +78,15 @@
             "item": "Objeto",
             "aspect": "Aspecto",
             "mod": "Mod"
+        },
+        "combat": {
+            "noCardsLeft": "¡No quedan suficientes cartas en la baraja!",
+            "initDraw": "¡Roba iniciativa!",
+            "ok": "Ok",
+            "redraw": "Roba",
+            "pickACard": "Coge una carta",
+            "cancel": "Cancelar",
+            "oldCard": "Carta vieja"
         }
     }
 }
