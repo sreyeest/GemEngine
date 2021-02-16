@@ -33,7 +33,8 @@
             "resist": "Resistencia",
             "star": "DRA",
             "initiative": "Iniciativa",
-            "size": "Tamaño"
+            "size": "Tamaño",
+            "mov": "Movimiento"
         },
         "health": {
             "fatigue": "Fatiga",

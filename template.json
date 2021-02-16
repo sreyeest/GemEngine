@@ -22,7 +22,8 @@
 				"resist": "d8",
 				"stars": 1,
 				"initiative": 1,
-				"size": 1
+				"size": 1,
+				"mov": 4
 			},
 			"aspects": {
 				"aspect0": "",

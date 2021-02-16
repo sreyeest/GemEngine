@@ -123,6 +123,13 @@
         text-shadow:1px 1px black;
         border-bottom:1px solid black;
     }
+    .top-border {
+        margin-top: 2px;
+        border-top: thin solid black;
+        margin-bottom: 2px;
+        border-bottom: thin solid black;
+    }
+
     .flexblock-center {
         display:flex;
         flex-direction:row;
@@ -150,10 +157,11 @@
     .flexblock-center input {
         font-size:11px;
         text-align:center;
-        border:1px solid #4d2424;
+        border: 1px solid #7a7971;
         border-radius:3px;
-        background-color:#ebdfc5;
+        background: rgba(0, 0, 0, 0.05);
         padding:2px 0px;
+        color: #191813;
     }
     .flexblock-left input[type=text].input-bhalf {
         width:35px;
@@ -234,8 +242,11 @@
     .fa-plus-square {
         margin-left: 30px;
     }
-    .create-item {
+    .item-create {
         color: white;
+        float: right;
+        margin-right: 2px;
+        margin-left: 2px;
     }
     .crossed {
         filter: invert();
