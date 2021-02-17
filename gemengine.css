@@ -404,3 +404,122 @@
   margin: 2px;
   display: inline-flex;
 }
+.dc-input {
+  background-color: antiquewhite;
+  border: 2px solid black;
+  border-radius: 4px;
+  height: 100px;
+  width: 100%;
+  margin-top: -46px;
+  margin-right: 10px;
+  user-select: all;
+}
+.dc-input input {
+  height: 60px;
+  width: 100px;
+  border: none;
+  color: black;
+  font-family: Impact, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  pointer-events: auto;
+}
+.dc-header {
+  font-family: Tahoma, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid red;
+  padding: 2px 2px;
+}
+.flexblock-left-nopad {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 100px;
+  align-items: flex-start;
+  justify-content: left;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.action-bar-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  min-width: 550px;
+}
+.roll-template {
+  width: 100%;
+}
+.roll-menu {
+  background-color: antiquewhite;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 3px 3px;
+  margin-top: -60px;
+  min-width: 286px;
+}
+.roll-flexrow {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 85%;
+  padding: 0px 0px;
+  margin: 0;
+}
+.roll-sender-image {
+  max-width: 35px;
+  max-height: 35px;
+  margin-right: 3px;
+  border-style: none;
+}
+.roll-sender-name {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+}
+.roll-underline {
+  border-bottom: 2px solid red;
+  height: 20px;
+  width: 70%;
+}
+.roll-delete-button {
+  width: 10px;
+}
+.roll-flavor {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  margin-top: -15px;
+}
+.roll-conditional {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  height: 20px;
+  width: 100%;
+  padding: 3px 3px;
+}
+.roll-result {
+  font-family: Impact, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  width: 100%;
+  padding: 5px 5px;
+  height: 70px;
+}
+.roll-iscrit {
+  color: green;
+}
+.roll-isfumble {
+  color: red;
+}
+.roll-detail {
+  width: 100%;
+  padding: 5px 5px;
+  height: 70px;
+}

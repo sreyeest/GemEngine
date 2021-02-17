@@ -1,7 +1,7 @@
 import { gemengine } from "./module/config.js";
 import GemItemSheet from "./module/sheets/GemItemSheet.js";
 import GemCharacterSheet from "./module/sheets/GemCharacterSheet.js";
-import { createActionCardTable, CardSetup, formatRoll, hideChatActionButtons } from "./module/util.js";
+import { createActionCardTable, CardSetup, formatRoll, hideChatActionButtons, rollToMenu } from "./module/util.js";
 import GemCombat from "./module/GemCombat.js";
 
 async function preloadHandlebarsTemplates() {
@@ -46,6 +46,33 @@ Hooks.once("init", function() {
         scope: 'world',
         type: Boolean,
         config: true,
+    });
+
+    game.settings.register("gemengine", "showDC", {
+        name: "Show DC window",
+        hint: "If checked a DC box will appear at the bottom of the screen",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+    });
+
+    game.settings.register("gemengine", "showLastRoll", {
+        name: "Show Last Roll window",
+        hint: "If checked a box displaying the results of the last Roll will appear at the bottom of the screen",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+    });
+
+    game.settings.register("gemengine", "diff", {
+        name: "GM difficulty",
+        hint: "This is linked to the DC Box at the bottom of the screen",
+        scope: "world",
+        config: false,
+        default: 1,
+        type: Number,
     });
 
     preloadHandlebarsTemplates();
@@ -116,6 +143,82 @@ Hooks.once('ready', async () => {
         },
     });
     await CardSetup.setup();
+
+    if(game.user.isGM){
+
+        game.data.rolldc = 3;
+
+        let hotbar = document.getElementById("hotbar");
+        let backgr = document.createElement("DIV");
+        backgr.className = "dc-input";
+
+        let header = document.createElement("DIV");
+        header.className = "dc-header";
+        header.textContent = "DC";
+
+        let form = document.createElement("FORM");
+        let sInput = document.createElement("INPUT");
+        sInput.setAttribute("type", "text");
+        sInput.setAttribute("name", "dc");
+        sInput.setAttribute("value", "");
+
+        let initvalue = 0;
+        if(!hasProperty(gemengine.diff,game.data.world.name)){
+            setProperty(gemengine.diff,game.data.world.name,0);
+        }
+
+        sInput.value = game.settings.get("gemengine", "diff");
+
+        sInput.addEventListener("keydown", async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if(event.key=="Backspace" || event.key=="Delete"){
+                sInput.value = 0;
+            }
+
+            else if(event.key=="Enter"){
+                await game.settings.set("gemengine", "diff", sInput.value);
+            }
+
+            else if(event.key=="-"){
+                sInput.value = "-";
+            }
+
+            else{
+                if(!isNaN(event.key))
+                    sInput.value += event.key;
+            }
+
+            if(!isNaN(sInput.value)){
+                sInput.value = parseInt(sInput.value);
+            }
+
+
+        });
+
+        sInput.addEventListener("focusout", async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            await game.settings.set("gemengine", "diff", sInput.value);
+
+        });
+
+        form.appendChild(sInput);
+        backgr.appendChild(header);
+
+        backgr.appendChild(form);
+
+        if(game.settings.get("gemengine", "showDC")){
+            await hotbar.appendChild(backgr);
+        }
+
+        await rollToMenu();
+        gemengine.showshield = false;
+
+        let macrosheet = document.getElementById("hotbar");
+    }
 });
 
 Hooks.on('renderChatMessage', async (message, html, data) => {
@@ -123,6 +226,17 @@ Hooks.on('renderChatMessage', async (message, html, data) => {
         await formatRoll(message, html, data);
     }
     hideChatActionButtons(message, html, data);
+
+    if (game.user.isGM){
+        $(html).find(".roll-message-delete").click(async ev => {
+            msg.delete();
+        });
+        rollToMenu();
+    }
+    else {
+        if (game.user._id!=data.message.user)
+            $(html).find(".roll-message-delete").hide();
+    }
 });
 
 Hooks.on('renderCombatTracker', (app, html, data) => {

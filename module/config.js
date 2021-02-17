@@ -1,5 +1,8 @@
 export const gemengine = {};
 
+gemengine.showshield=false;
+gemengine.diff = {};
+
 gemengine.diceTypes = {
     none: "-",
     d4: "d4",

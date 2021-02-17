@@ -35,7 +35,7 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
                     roll.terms.push(dicePool);
                     let label = "Tirada de Potensia y disciplina";
                     let rollResult = roll.roll();
-                    let goal;
+                    let goal = game.settings.get("gemengine", "diff");
 
                     let messageData = {
                         speaker: ChatMessage.getSpeaker({ actor: actor }),

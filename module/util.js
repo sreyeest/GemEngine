@@ -128,6 +128,7 @@ export async function formatRoll(chatMessage, html, data) {
     let rendered = await renderTemplate('systems/gemengine/templates/chat/roll-formula.hbs', chatData);
     let formula = html.find('.dice-formula');
     formula.replaceWith(rendered);
+    //De esta forma editamos el dialogo del chat
 }
 
 export function hideChatActionButtons(message, html, data) {
@@ -147,4 +148,60 @@ export function hideChatActionButtons(message, html, data) {
             btn.style.display = 'none';
         });
     }
+}
+
+export function rollToMenu(html = null) {
+
+    if(!game.settings.get("gemengine", "showLastRoll"))
+        return;
+
+    //console.log("rolling to menu");
+    let hotbar = document.getElementById("hotbar");
+    hotbar.className = "flexblock-left-nopad";
+
+    let actionbar = document.getElementById("action-bar");
+    if(actionbar!=null)
+        actionbar.className = "action-bar-container";
+
+    let prevmenu = hotbar.querySelector(".roll-menu");
+
+    if(prevmenu!=null)
+        prevmenu.remove();
+
+    let tester = document.createElement("DIV");
+
+    if(html==null){
+        let lastmessage;
+        let found = false;
+
+        for(let i=game.messages.size-1;i>=0;i--){
+            let amessage = game.messages.entities[i];
+            if(!found){
+                if(amessage.data.content.includes("roll-template")){
+                    found=true;
+                    lastmessage =amessage;
+                }
+            }
+        }
+
+        if(lastmessage==null)
+            return;
+        let msgContent = lastmessage.data.content;
+
+        tester.innerHTML = msgContent;
+    }
+
+    else{
+        tester.innerHTML = html;
+    }
+
+    let rollextra = tester.querySelector(".roll-extra");
+    rollextra.style.display="none";
+
+
+    let rollMenu = document.createElement("DIV");
+    rollMenu.className = "roll-menu";
+    rollMenu.innerHTML = tester.innerHTML;
+    //console.log("appending");
+    hotbar.appendChild(rollMenu);
 }
