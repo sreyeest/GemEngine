@@ -33,7 +33,7 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
                     let dicePool = DicePool.fromExpression("{"+ dicePoolString +"}cs>3");
                     let roll = new Roll(rollString, actor.data.data);
                     roll.terms.push(dicePool);
-                    let label = "Tirada de Potensia y disciplina";
+                    let label = getRollLabel(attribute, talentDice, equipDice, aspectDice, mod);
                     let rollResult = roll.roll();
                     let goal = game.settings.get("gemengine", "diff");
 
@@ -57,4 +57,93 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
     });
 
     dialog.render(true);
+}
+
+export function getRollLabel(attribute, talent, equip, aspect, mod)
+{
+    let label = game.i18n.localize("gemengine.roll.windowName") + " " + game.i18n.localize("gemengine.roll.of") + " ";
+
+    if(attribute != "-")
+    {
+        label += game.i18n.localize("gemengine.attributes."+attribute);
+    }
+
+    if(talent != "-")
+    {
+        if(attribute != "-")
+        {
+            if(equip != "-" || aspect != "-" || mod != "-")
+            {
+                label += ", ";
+            }
+            else
+            {
+                label += " " + game.i18n.localize("gemengine.roll.and") + " ";
+            }
+        }
+        else
+        {
+            label += " ";
+        }
+        
+        label += game.i18n.localize("gemengine.roll.talent");
+    }
+
+    if(equip != "-")
+    {
+        if(attribute != "-" || talent != "-")
+        {
+            if(aspect != "-" || mod != "-")
+            {
+                label += ", ";
+            }
+            else
+            {
+                label += " " + game.i18n.localize("gemengine.roll.and") + " ";
+            }
+        }
+        else
+        {
+            label += " ";
+        }
+
+        label += game.i18n.localize("gemengine.roll.item");
+    }
+
+    if(aspect != "-")
+    {
+        if(attribute != "-" || talent != "-" || equip != "-")
+        {
+            if(mod != "-")
+            {
+                label += ", ";
+            }
+            else
+            {
+                label += " " + game.i18n.localize("gemengine.roll.and") + " ";
+            }
+        }
+        else
+        {
+            label += " ";
+        }
+
+        label += game.i18n.localize("gemengine.roll.aspect");
+    }
+
+    if(mod != "-")
+    {
+        if(attribute != "-" || talent != "-" || equip != "-" || aspect != "-")
+        {
+            label += " " + game.i18n.localize("gemengine.roll.and") + " ";
+        }
+        else
+        {
+            label += " ";
+        }
+
+        label += game.i18n.localize("gemengine.roll.mod");
+    }
+
+    return label;
 }

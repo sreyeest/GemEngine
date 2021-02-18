@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th class="chat-label-header">{{localize "gemengine.roll.successes"}}</th>
+        <th class="chat-label-header">{{localize "gemengine.roll.difficulty"}}</th>
+    </tr>
+    <tr>
+        <td class="chat-label {{#ifGreater this.goal this.result}}chat-red{{else}}chat-green{{/ifGreater}}">{{this.result}}</td>
+        <td class="chat-label">{{this.goal}}</h4></td>
+    </tr>
+</table>
+
+{{#if this.canReroll}}
+<button class="chat-reroll-button">{{localize "gemengine.roll.reroll"}}</button>
+{{/if }}

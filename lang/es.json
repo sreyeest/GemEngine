@@ -78,7 +78,14 @@
             "talent": "Talento",
             "item": "Objeto",
             "aspect": "Aspecto",
-            "mod": "Mod"
+            "mod": "Mod",
+            "and": "y",
+            "of": "de",
+            "reroll": "Forzar Tirada",
+            "successes": "Éxitos",
+            "difficulty": "Dificultad",
+            "feats": "Proezas",
+            "threats": "Amenazas"
         },
         "combat": {
             "noCardsLeft": "¡No quedan suficientes cartas en la baraja!",

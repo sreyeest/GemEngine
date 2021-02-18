@@ -124,11 +124,23 @@ export async function formatRoll(chatMessage, html, data) {
             }
         }
     }
+
     // Replace default dice-formula by this custom;
-    let rendered = await renderTemplate('systems/gemengine/templates/chat/roll-formula.hbs', chatData);
-    let formula = html.find('.dice-formula');
-    formula.replaceWith(rendered);
-    //De esta forma editamos el dialogo del chat
+    let formulaRendered = await renderTemplate('systems/gemengine/templates/chat/roll-formula.hbs', chatData);
+    let htmlFormula = html.find('.dice-formula');
+    htmlFormula.replaceWith(formulaRendered);
+
+    let canReroll = true;
+
+    let resultData = {
+        goal: chatMessage.getFlag('gemengine', 'goal'),
+        result: chatMessage.getFlag('gemengine', 'detail'),
+        canReroll: canReroll,
+    };
+
+    let resultRendered = await renderTemplate('systems/gemengine/templates/chat/roll-result.hbs', resultData);
+    let htmlResult = html.find('.dice-total');
+    htmlResult.replaceWith(resultRendered);
 }
 
 export function hideChatActionButtons(message, html, data) {

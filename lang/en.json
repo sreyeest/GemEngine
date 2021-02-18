@@ -78,7 +78,14 @@
             "talent": "Talent",
             "item": "Item",
             "aspect": "Aspect",
-            "mod": "Mod"
+            "mod": "Mod",
+            "and": "and",
+            "of": "of",
+            "reroll": "Force Roll",
+            "successes": "Successes",
+            "difficulty": "Difficulty",
+            "feats": "Feats",
+            "threats": "Threats"
         },
         "combat": {
             "noCardsLeft": "There are not enough cards left in the deck!",
