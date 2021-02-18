@@ -115,7 +115,20 @@ Hooks.once("init", function() {
         return options.inverse(this);
     });
 
-    
+    Handlebars.registerHelper('difMoreThanZero', function(v1, v2, options) {
+        if((parseInt(v1) - parseInt(v2)) > 0) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('sum', function(v1, v2) {
+        return (parseInt(v1) + parseInt(v2));
+    });
+
+    Handlebars.registerHelper('dif', function(v1, v2) {
+        return (parseInt(v1) - parseInt(v2));
+    });
 });
 
 Hooks.once('setup', () => {

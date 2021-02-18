@@ -9,6 +9,26 @@
     </tr>
 </table>
 
+<table>
+    {{#difMoreThanZero this.result this.goal}} 
+    <tr>
+        <th class="chat-label-header-full chat-green">{{localize "gemengine.roll.feats"}}</th>
+    </tr>
+    <tr>
+        <td class="chat-label-full chat-green">{{dif this.result this.goal}}</td>
+    </tr>
+    {{/difMoreThanZero}}
+
+    {{#difMoreThanZero this.goal this.result}}
+    <tr>
+        <th class="chat-label-header-full chat-red">{{localize "gemengine.roll.threats"}}</th>
+    </tr>
+    <tr>
+        <td class="chat-label-full chat-red">{{dif this.goal this.result}}</td>
+    </tr>
+    {{/difMoreThanZero}}
+</table>
+
 {{#if this.canReroll}}
 <button class="chat-reroll-button">{{localize "gemengine.roll.reroll"}}</button>
 {{/if }}
