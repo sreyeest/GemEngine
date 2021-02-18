@@ -130,12 +130,10 @@ export async function formatRoll(chatMessage, html, data) {
     let htmlFormula = html.find('.dice-formula');
     htmlFormula.replaceWith(formulaRendered);
 
-    let canReroll = true;
-
     let resultData = {
         goal: chatMessage.getFlag('gemengine', 'goal'),
         result: chatMessage.getFlag('gemengine', 'detail'),
-        canReroll: canReroll,
+        canReroll: chatMessage.getFlag('gemengine', 'canReroll'),
     };
 
     let resultRendered = await renderTemplate('systems/gemengine/templates/chat/roll-result.hbs', resultData);

@@ -39,7 +39,7 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
 
                     let messageData = {
                         speaker: ChatMessage.getSpeaker({ actor: actor }),
-                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result}},
+                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result, 'canReroll': true}},
                         flavor: label,
                     };           
                         
