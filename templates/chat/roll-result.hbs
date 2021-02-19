@@ -30,6 +30,7 @@
 </table>
 
 {{#if this.canReroll}}
+{{#isOwner actorId}}
 <button class="chat-reroll-button"
     data-actor-id="{{actorId}}"
     data-label="{{label}}"
@@ -37,4 +38,5 @@
     data-goal="{{goal}}"
     data-baseResult="{{baseResult}}"
     data-rerollPoolString="{{rerollPoolString}}">{{localize "gemengine.roll.reroll"}}</button>
+{{/isOwner}}
 {{/if }}

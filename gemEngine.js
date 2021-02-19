@@ -115,6 +115,15 @@ Hooks.once("init", function() {
         return options.inverse(this);
     });
 
+    Handlebars.registerHelper('isOwner', function(actorId, options) {
+        const actor = game.actors.get(actorId || "");
+
+        if(actor.hasPerm(game.user, "OWNER")) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     Handlebars.registerHelper('difMoreThanZero', function(v1, v2, options) {
         if((parseInt(v1) - parseInt(v2)) > 0) {
             return options.fn(this);
