@@ -67,15 +67,31 @@ export async function formatRoll(chatMessage, html, data) {
         });
     };
 
+    let pushBaseDice = (chatData, total, faces) => {
+        let img = null;
+        if ([4, 6, 8, 10, 12, 20].indexOf(faces) > -1) {
+            img = `systems/gemengine/styles/img/d${faces}`;
+        }
+        chatData.baseDice.push({
+            img: img,
+            result: total,
+            dice: true,
+        });
+    };
+
     let roll = JSON.parse(data.message.roll);
     let chatData = { 
         label: chatMessage.getFlag('gemengine', 'text'),
         dice: [], 
         baseDice: [],
+        baseJson: data.message.roll,
         goal: chatMessage.getFlag('gemengine', 'goal'),
-        result: chatMessage.getFlag('gemengine', 'detail'),
+        result: (chatMessage.getFlag('gemengine', 'isReroll')) ? (parseInt(chatMessage.getFlag('gemengine', 'detail')) + parseInt(chatMessage.getFlag('gemengine', 'baseResult'))) : chatMessage.getFlag('gemengine', 'detail'),
+        baseResult: chatMessage.getFlag('gemengine', 'baseResult'),
         canReroll: chatMessage.getFlag('gemengine', 'canReroll'),
         isReroll: chatMessage.getFlag('gemengine', 'isReroll'),
+        rerollPoolString: chatMessage.getFlag('gemengine', 'rerollPoolString'),
+        actorId: chatMessage.getFlag('gemengine', 'actorId'),
     };
 
     //don't format older messages anymore
@@ -92,14 +108,26 @@ export async function formatRoll(chatMessage, html, data) {
                 pushDice(chatData, poolRoll.total, faces);
             });
         }
-        else if (roll.terms[i].class === 'Die') {
-            // Grab the right dice
-            let faces = roll.terms[i].faces;
-            let totalDice = 0;
-            roll.terms[i].results.forEach((result) => {
-                totalDice += result.result;
-            });
-            pushDice(chatData, totalDice, faces);
+    }
+
+    if(chatData.isReroll)
+    {
+        let baseJson = chatMessage.getFlag('gemengine', 'baseJson');
+        let baseRoll = JSON.parse(baseJson);
+
+        if (baseRoll.parts)
+        return;
+        for (let i = 0; i < baseRoll.terms.length; i++) {
+            if (baseRoll.terms[i].class === 'DicePool') {
+                // Format the dice pools
+                let pool = baseRoll.terms[i].rolls;
+                let faces = 0;
+                // Compute dice from the pool
+                pool.forEach((poolRoll) => {
+                    faces = poolRoll.terms[0]['faces'];
+                    pushBaseDice(chatData, poolRoll.total, faces);
+                });
+            }
         }
     }
 

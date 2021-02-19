@@ -37,9 +37,12 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
                     let rollResult = roll.roll();
                     let goal = game.settings.get("gemengine", "diff");
 
+                    let rerollPoolString = getRerollPoolString(rollResult);
+                    let canReroll = rerollPoolString != "";
+
                     let messageData = {
                         speaker: ChatMessage.getSpeaker({ actor: actor }),
-                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result, 'canReroll': true, 'isReroll': false}},
+                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result, 'canReroll': canReroll, 'isReroll': false,'baseResult': rollResult.result, 'baseJson': '{}', 'rerollPoolString': rerollPoolString, 'actorId': actor.id}},
                         flavor: label,
                     };           
                         
@@ -61,10 +64,43 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
 
 export async function handleReroll(e) {
     e.stopPropagation();
+    const actor = game.actors.get(e.target.dataset.actorId || "");
+    const label = e.target.dataset.label || '';
+    const rerollPoolString = e.target.dataset.rerollpoolstring  || '';
+    const baseResult = e.target.dataset.baseresult || '';
+    const goal = e.target.dataset.goal || '';
+    const baseJson = e.target.dataset.basejson || '';
 
-    let target = e.target;
+    let dicePool = DicePool.fromExpression("{"+ rerollPoolString +"}cs>3");
+    let roll = new Roll("", actor.data.data);
+    roll.terms.push(dicePool);
+    let rollResult = roll.roll();
 
-    console.log("Tirada de REROLL!");
+    let rerollLabel = label + " (" + game.i18n.localize("gemengine.roll.rerolled") + ")";
+
+    let messageData = {
+        speaker: ChatMessage.getSpeaker({ actor: actor }),
+        flags: {'gemengine':{'text':rerollLabel, 'goal':goal, 'detail': rollResult.result, 'canReroll': false, 'isReroll': true,'baseResult': baseResult, 'baseJson': baseJson, 'rerollPoolString': '', 'actorId': actor.id}},
+        flavor: rerollLabel,
+    };           
+        
+    rollResult.toMessage(messageData);
+}
+
+export function getRerollPoolString(roll)
+{
+    let rerollPoolString = "";
+
+    roll.terms.forEach(term => {
+        term.rolls.forEach(r => {
+            if(r.total == 2 || r.total == 3)
+            {
+                rerollPoolString += (rerollPoolString == "") ? r.formula : "," + r.formula;
+            }
+        });
+    });
+
+    return rerollPoolString;
 }
 
 export function getRollLabel(attribute, talent, equip, aspect, mod)

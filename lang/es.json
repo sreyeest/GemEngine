@@ -85,7 +85,8 @@
             "successes": "Éxitos",
             "difficulty": "Dificultad",
             "feats": "Proezas",
-            "threats": "Amenazas"
+            "threats": "Amenazas",
+            "rerolled": "Forzada"
         },
         "combat": {
             "noCardsLeft": "¡No quedan suficientes cartas en la baraja!",

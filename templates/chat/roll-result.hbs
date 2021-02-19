@@ -10,7 +10,7 @@
 </table>
 
 <table>
-    {{#difMoreThanZero result this.goal}}
+    {{#difMoreThanZero result goal}}
     <tr>
         <th class="chat-label-header-full chat-green">{{localize "gemengine.roll.feats"}}</th>
     </tr>
@@ -19,7 +19,7 @@
     </tr>
     {{/difMoreThanZero}}
 
-    {{#difMoreThanZero goal this.result}}
+    {{#difMoreThanZero goal result}}
     <tr>
         <th class="chat-label-header-full chat-red">{{localize "gemengine.roll.threats"}}</th>
     </tr>
@@ -30,5 +30,11 @@
 </table>
 
 {{#if this.canReroll}}
-<button class="chat-reroll-button">{{localize "gemengine.roll.reroll"}}</button>
+<button class="chat-reroll-button"
+    data-actor-id="{{actorId}}"
+    data-label="{{label}}"
+    data-baseJson="{{baseJson}}"
+    data-goal="{{goal}}"
+    data-baseResult="{{baseResult}}"
+    data-rerollPoolString="{{rerollPoolString}}">{{localize "gemengine.roll.reroll"}}</button>
 {{/if }}

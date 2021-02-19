@@ -85,7 +85,8 @@
             "successes": "Successes",
             "difficulty": "Difficulty",
             "feats": "Feats",
-            "threats": "Threats"
+            "threats": "Threats",
+            "rerolled": "Rerolled"
         },
         "combat": {
             "noCardsLeft": "There are not enough cards left in the deck!",

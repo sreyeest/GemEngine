@@ -127,6 +127,7 @@ Hooks.once("init", function() {
     });
 
     Handlebars.registerHelper('dif', function(v1, v2) {
+        console.log("value1: " + v1 + " value2: " + v2);
         return (parseInt(v1) - parseInt(v2));
     });
 });
