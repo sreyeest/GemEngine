@@ -1,7 +1,21 @@
 <div class="dice-formula">
     {{#each dice}}
     <div class="dice">
-        <label style="color:{{this.color}}; text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;">
+        <label style="color:black; text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;">
+            {{this.result}}
+        </label>
+        {{#if this.img}}
+        <img src='{{this.img}}{{#ifGreater this.result 3}}-green.png{{/ifGreater}}{{#ifEqual this.result 3}}-orange.png{{/ifEqual}}{{#ifEqual this.result 2}}-orange.png{{/ifEqual}}{{#ifLess this.result 2}}-red.png{{/ifLess}}'/>
+        {{/if}}
+    </div>    
+    {{/each}}
+    <!--Aki arriba va la tirada anterior si esq es un reroll, la leemos con el mismo bucle y a triunfar-->
+    <div style="display: inline-flex;text-align:center;">
+        <h3>|</h3>
+    </div>
+    {{#each dice}}
+    <div class="dice">
+        <label style="color:black; text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;">
             {{this.result}}
         </label>
         {{#if this.img}}

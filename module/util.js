@@ -53,41 +53,18 @@ export class CardSetup {
 export async function formatRoll(chatMessage, html, data) {
     const colorMessage = chatMessage.getFlag('gemengine', 'colorMessage');
     // Little helper function
-    let pushDice = (chatData, total, faces, red) => {
-        let color = 'black';
-        if (total > faces) {
-            color = 'green';
-        }
-        if (red) {
-            color = 'red';
-        }
+    let pushDice = (chatData, total, faces) => {
         let img = null;
         if ([4, 6, 8, 10, 12, 20].indexOf(faces) > -1) {
-            //img = `../icons/svg/d${faces}-grey.svg`;
             img = `systems/gemengine/styles/img/d${faces}`;
         }
         chatData.dice.push({
             img: img,
             result: total,
-            color: color,
             dice: true,
         });
     };
-    //helper function that determines if a roll contained at least one result of 1
-    let rollIsRed = (roll) => {
-        let retVal = roll.terms.some((d) => {
-            if (d['class'] !== 'Die')
-                return false;
-            return d.results[0]['result'] === 1;
-        });
-        return retVal;
-    };
-    //helper function that determines if a roll contained at least one result of 1
-    let dieIsRed = (die) => {
-        if (die['class'] !== 'Die')
-            return false;
-        return die.results[0]['result'] === 1;
-    };
+
     let roll = JSON.parse(data.message.roll);
     let chatData = { dice: [], modifiers: [] };
     //don't format older messages anymore
@@ -101,7 +78,7 @@ export async function formatRoll(chatMessage, html, data) {
             // Compute dice from the pool
             pool.forEach((poolRoll) => {
                 faces = poolRoll.terms[0]['faces'];
-                pushDice(chatData, poolRoll.total, faces, colorMessage && rollIsRed(poolRoll));
+                pushDice(chatData, poolRoll.total, faces);
             });
         }
         else if (roll.terms[i].class === 'Die') {
@@ -111,17 +88,7 @@ export async function formatRoll(chatMessage, html, data) {
             roll.terms[i].results.forEach((result) => {
                 totalDice += result.result;
             });
-            pushDice(chatData, totalDice, faces, colorMessage && dieIsRed(roll.terms[i]));
-        }
-        else {
-            if (roll.terms[i]) {
-                chatData.dice.push({
-                    img: null,
-                    result: roll.terms[i],
-                    color: 'black',
-                    dice: false,
-                });
-            }
+            pushDice(chatData, totalDice, faces);
         }
     }
 

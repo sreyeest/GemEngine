@@ -4,27 +4,27 @@
         <th class="chat-label-header">{{localize "gemengine.roll.difficulty"}}</th>
     </tr>
     <tr>
-        <td class="chat-label {{#ifGreater this.goal this.result}}chat-red{{else}}chat-green{{/ifGreater}}">{{this.result}}</td>
-        <td class="chat-label">{{this.goal}}</h4></td>
+        <td class="chat-label {{#ifGreater goal this.result}}chat-red{{else}}chat-green{{/ifGreater}}">{{result}}</td>
+        <td class="chat-label">{{goal}}</h4></td>
     </tr>
 </table>
 
 <table>
-    {{#difMoreThanZero this.result this.goal}} 
+    {{#difMoreThanZero result this.goal}}
     <tr>
         <th class="chat-label-header-full chat-green">{{localize "gemengine.roll.feats"}}</th>
     </tr>
     <tr>
-        <td class="chat-label-full chat-green">{{dif this.result this.goal}}</td>
+        <td class="chat-label-full chat-green">{{dif result goal}}</td>
     </tr>
     {{/difMoreThanZero}}
 
-    {{#difMoreThanZero this.goal this.result}}
+    {{#difMoreThanZero goal this.result}}
     <tr>
         <th class="chat-label-header-full chat-red">{{localize "gemengine.roll.threats"}}</th>
     </tr>
     <tr>
-        <td class="chat-label-full chat-red">{{dif this.goal this.result}}</td>
+        <td class="chat-label-full chat-red">{{dif goal result}}</td>
     </tr>
     {{/difMoreThanZero}}
 </table>
