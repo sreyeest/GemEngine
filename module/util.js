@@ -1,3 +1,5 @@
+import { handleReroll } from "../module/sheets/dialoj.js";
+
 export async function createActionCardTable(rebuild, cardpack) {
     let packName = game.settings.get('gemengine', 'cardDeck');
     if (cardpack) {
@@ -66,7 +68,16 @@ export async function formatRoll(chatMessage, html, data) {
     };
 
     let roll = JSON.parse(data.message.roll);
-    let chatData = { dice: [], modifiers: [] };
+    let chatData = { 
+        label: chatMessage.getFlag('gemengine', 'text'),
+        dice: [], 
+        baseDice: [],
+        goal: chatMessage.getFlag('gemengine', 'goal'),
+        result: chatMessage.getFlag('gemengine', 'detail'),
+        canReroll: chatMessage.getFlag('gemengine', 'canReroll'),
+        isReroll: chatMessage.getFlag('gemengine', 'isReroll'),
+    };
+
     //don't format older messages anymore
     if (roll.parts)
         return;
@@ -97,13 +108,7 @@ export async function formatRoll(chatMessage, html, data) {
     let htmlFormula = html.find('.dice-formula');
     htmlFormula.replaceWith(formulaRendered);
 
-    let resultData = {
-        goal: chatMessage.getFlag('gemengine', 'goal'),
-        result: chatMessage.getFlag('gemengine', 'detail'),
-        canReroll: chatMessage.getFlag('gemengine', 'canReroll'),
-    };
-
-    let resultRendered = await renderTemplate('systems/gemengine/templates/chat/roll-result.hbs', resultData);
+    let resultRendered = await renderTemplate('systems/gemengine/templates/chat/roll-result.hbs', chatData);
     let htmlResult = html.find('.dice-total');
     htmlResult.replaceWith(resultRendered);
 }
@@ -181,4 +186,8 @@ export function rollToMenu(html = null) {
     rollMenu.innerHTML = tester.innerHTML;
     //console.log("appending");
     hotbar.appendChild(rollMenu);
+}
+
+export function onChatLogRender(html) {
+    html.on('click', 'button.chat-reroll-button', (e) => handleReroll(e));
 }

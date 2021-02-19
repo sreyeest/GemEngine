@@ -1,7 +1,7 @@
 import { gemengine } from "./module/config.js";
 import GemItemSheet from "./module/sheets/GemItemSheet.js";
 import GemCharacterSheet from "./module/sheets/GemCharacterSheet.js";
-import { createActionCardTable, CardSetup, formatRoll, hideChatActionButtons, rollToMenu } from "./module/util.js";
+import { createActionCardTable, CardSetup, formatRoll, hideChatActionButtons, rollToMenu, onChatLogRender} from "./module/util.js";
 import GemCombat from "./module/GemCombat.js";
 
 async function preloadHandlebarsTemplates() {
@@ -340,6 +340,8 @@ Hooks.on('deleteCombat', (combat, options, userId) => {
         });
     }
 });
+
+Hooks.on("renderChatLog", (_app, html, _data) => onChatLogRender(html));
 
 Hooks.on('renderCombatantConfig', async (app, html, options) => {
     // resize the element so it'll fit the new stuff

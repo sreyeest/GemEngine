@@ -1,5 +1,5 @@
 <div class="dice-formula">
-    {{#each dice}}
+    {{#each baseDice}}
     <div class="dice">
         <label style="color:black; text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;">
             {{this.result}}
@@ -9,10 +9,13 @@
         {{/if}}
     </div>    
     {{/each}}
-    <!--Aki arriba va la tirada anterior si esq es un reroll, la leemos con el mismo bucle y a triunfar-->
-    <div style="display: inline-flex;text-align:center;">
+
+    {{#if isReroll}}
+    <div style="display: inline-flex; text-align:center;">
         <h3>|</h3>
     </div>
+    {{/if}}
+
     {{#each dice}}
     <div class="dice">
         <label style="color:black; text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;">

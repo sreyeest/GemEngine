@@ -39,7 +39,7 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
 
                     let messageData = {
                         speaker: ChatMessage.getSpeaker({ actor: actor }),
-                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result, 'canReroll': true}},
+                        flags: {'gemengine':{'text':label, 'goal':goal, 'detail': rollResult.result, 'canReroll': true, 'isReroll': false}},
                         flavor: label,
                     };           
                         
@@ -57,6 +57,14 @@ export async function prepareRoll(actor, attribute, talentId, equip, aspect, mod
     });
 
     dialog.render(true);
+}
+
+export async function handleReroll(e) {
+    e.stopPropagation();
+
+    let target = e.target;
+
+    console.log("Tirada de REROLL!");
 }
 
 export function getRollLabel(attribute, talent, equip, aspect, mod)
