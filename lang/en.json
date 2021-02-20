@@ -12,7 +12,11 @@
             "talents": "Talents and Traits",
             "aspects": "Aspects",
             "equipment": "Equipment",
-            "condition": "Health Condition"
+            "condition": "Health Condition",
+            "addTalent": "Add Talent",
+            "addArtifact": "Add Artifact",
+            "addArmor": "Add Armor",
+            "addWeapon": "Add Weapon"
         },
         "att": {
             "power": "POW",
@@ -21,7 +25,8 @@
             "skill": "SKI",
             "aura": "AUR",
             "instinct": "INS",
-            "resist": "RES"
+            "resist": "RES",
+            "star": "DRA"
         },
         "attributes": {
             "power": "Power",
@@ -31,7 +36,7 @@
             "aura": "Aura",
             "instinct": "Instinct",
             "resist": "Resist",
-            "star": "DRA",
+            "star": "Drama Points",
             "initiative": "Initiative",
             "size": "Size",
             "mov": "Movement"

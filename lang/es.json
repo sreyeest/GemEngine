@@ -12,7 +12,11 @@
             "talents": "Talentos y Rasgos",
             "aspects": "Aspectos",
             "equipment": "Equipo",
-            "condition": "Estado"
+            "condition": "Estado",
+            "addTalent": "Agregar Talento",
+            "addArtifact": "Agregar Artefacto",
+            "addArmor": "Agregar Armadura",
+            "addWeapon": "Agregar Arma"
         },
         "att": {
             "power": "POT",
@@ -21,7 +25,8 @@
             "skill": "MAÑ",
             "aura": "AUR",
             "instinct": "INS",
-            "resist": "RES"
+            "resist": "RES",
+            "star": "DRA"
         },
         "attributes": {
             "power": "Potencia",
@@ -31,7 +36,7 @@
             "aura": "Aura",
             "instinct": "Instinto",
             "resist": "Resistencia",
-            "star": "DRA",
+            "star": "Puntos de Drama",
             "initiative": "Iniciativa",
             "size": "Tamaño",
             "mov": "Movimiento"

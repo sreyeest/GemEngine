@@ -1,7 +1,7 @@
 <div class="panelheader">{{localize "gemengine.labels.equipment"}}
-    <a class="item-create" data-type="weapon"><i class="fas fa-utensils"></i></a>
-    <a class="item-create" data-type="armor"><i class="fas fa-shield-alt"></i></a>
-    <a class="item-create" data-type="artifact"><i class="fas fa-flask"></i></a>
+    <a class="item-create" data-type="artifact" title="{{localize "gemengine.labels.addArtifact"}}"><i class="fas fa-flask"></i></a>
+    <a class="item-create" data-type="armor" title="{{localize "gemengine.labels.addArmor"}}"><i class="fas fa-shield-alt"></i></a>
+    <a class="item-create" data-type="weapon" title="{{localize "gemengine.labels.addWeapon"}}"><i class="fas fa-utensils"></i></a>
 </div>
 <div class="new-row">
     {{#each actor.items as |item id|}}
