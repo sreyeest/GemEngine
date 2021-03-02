@@ -1,26 +1,38 @@
-<form class="actor-sheet {{cssClass}}" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
         <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
-    <div class="sheet-content">
-        <p> NOR PERSONAHE! </p>
+      
+    <section class="sheet-body" id="sheet-body">
+    <div class="tab scrollable mainTab_tab active" id="mainTab_Def" data-group="primary" data-tab="mainTab"
+        style="height: 525px;">
+        <div class="new-column" id="mainTabBody">
+            <div class="new-block" id="mainTabrow0">
+                <div class="col-1-3">
+                    {{> "systems/gemengine/templates/partials/attributes-panel.hbs"}}
+                </div>
+                <div class="col-2-3">
+                    {{> "systems/gemengine/templates/partials/data-panel.hbs"}}
+                </div>
+            </div>
+            <div class="new-block" id="mainTabrow1">
+                <div class="col-1-3">
+                    {{> "systems/gemengine/templates/partials/talents-panel.hbs"}}
+                </div>
+                <div class="col-2-3">
+                    {{> "systems/gemengine/templates/partials/aspects-panel.hbs"}}
+                </div>
+            </div>
+            <div class="new-block" id="mainTabrow2">
+                <div class="col-1-2">
+                    {{> "systems/gemengine/templates/partials/equipment-panel.hbs"}}
+                </div>
+                <div class="col-1-2">
+                    {{> "systems/gemengine/templates/partials/state-panel.hbs"}}
+                </div>
+            </div>
+        </div>
     </div>
-    <section class="items">
-        <h3>Owned Items</h3>
-        <ol class="actor-items">
-        {{#each actor.items as |item id|}}
-            <li class="actor-item" data-item-id="{{id}}">
-                <div class="item-name">
-                  <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                    <h4>{{item.name}}</h4>
-                </div>
-                <div class="item-controls">
-                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                </div>
-            </li>
-        {{/each}}
-        </ol>
     </section>
 </form>
